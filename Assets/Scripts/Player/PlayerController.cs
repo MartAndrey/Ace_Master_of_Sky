@@ -7,9 +7,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] float speed;
+    [SerializeField] float rotSpeed;
+    [SerializeField] float maxSpeed;
+
     Rigidbody2D rb;
 
-    [SerializeField] int speed;
     float movementX;
     float movementY;
 
@@ -27,6 +30,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(movementX, movementY) * speed;
+        rb.rotation -= movementX * rotSpeed;
+        speed = Mathf.Clamp(speed + movementY, 1.5f , maxSpeed);
+
+        rb.velocity = transform.up * speed;
     }
 }
