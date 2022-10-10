@@ -6,3 +6,5 @@
 - Arrays, List, Dictionaries 
 - New Input System
 - Pathfinding - IA
+- Animation Events
+- Tweening
