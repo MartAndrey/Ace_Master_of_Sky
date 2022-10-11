@@ -8,3 +8,4 @@
 - Pathfinding - IA
 - Animation Events
 - Tweening
+- Transiciones

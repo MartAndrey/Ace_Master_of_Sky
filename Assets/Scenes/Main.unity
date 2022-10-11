@@ -134,8 +134,9 @@ GameObject:
   - component: {fileID: 451888062}
   - component: {fileID: 451888061}
   - component: {fileID: 451888060}
+  - component: {fileID: 451888063}
   m_Layer: 0
-  m_Name: Planes_12
+  m_Name: Ship Big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,6 +229,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &451888063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451888059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23ff31b1aebef48419c0ba46615046a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ease: 27
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,7 +779,7 @@ GameObject:
   - component: {fileID: 1592767656}
   - component: {fileID: 1592767655}
   m_Layer: 0
-  m_Name: Planes_10
+  m_Name: Ship Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1257,7 +1271,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 435731911, guid: 4a8f27cedf710c641a5b3b290835b4a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1457,6 +1471,63 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.56, y: 0.84}
   m_Direction: 0
+--- !u!1001 &4088333801862572472
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088333802876253606, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
+      propertyPath: m_Name
+      value: Fade
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
 --- !u!1001 &5750854820501336461
 PrefabInstance:
   m_ObjectHideFlags: 0
