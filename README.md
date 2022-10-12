@@ -11,3 +11,4 @@
 - Transiciones
 - Callbacks
 - API connection
+- JSON

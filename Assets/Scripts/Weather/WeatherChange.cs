@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using LitJson;
 
 public class WeatherChange : MonoBehaviour
 {
+    int currentWeather;
+
     void Start()
     {
         StartCoroutine(GetWeather());
@@ -21,7 +24,9 @@ public class WeatherChange : MonoBehaviour
         }
         else
         {
-            Debug.Log(www.downloadHandler.text);
+            JsonData jsonData = JsonMapper.ToObject(www.downloadHandler.text);
+            currentWeather = (int ) jsonData["weather"] [0] ["id"];
+            Debug.Log(currentWeather);
         }
     }
 }
