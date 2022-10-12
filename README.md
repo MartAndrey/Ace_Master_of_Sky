@@ -12,3 +12,4 @@
 - Callbacks
 - API connection
 - JSON
+- Delegates
