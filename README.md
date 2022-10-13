@@ -13,3 +13,5 @@
 - API connection
 - JSON
 - Delegates
+- Events
+- Singleton

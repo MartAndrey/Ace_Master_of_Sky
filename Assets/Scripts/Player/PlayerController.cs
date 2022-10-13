@@ -21,18 +21,22 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void OnMove(InputValue movementValue)
-    {
-        Vector2 movementVector = movementValue.Get<Vector2>();
-        movementX = movementVector.x;
-        movementY = movementVector.y;
-    }
-
     void FixedUpdate()
     {
         rb.rotation -= movementX * rotSpeed;
         speed = Mathf.Clamp(speed + movementY, 1.5f , maxSpeed);
 
         rb.velocity = transform.up * speed;
+    }
+    void OnMove(InputValue movementValue)
+    {
+        Vector2 movementVector = movementValue.Get<Vector2>();
+        movementX = movementVector.x;
+        movementY = movementVector.y;
+    }
+    
+    void OnFire()
+    {
+        SoundManager.Instance.PlayShoot();
     }
 }
