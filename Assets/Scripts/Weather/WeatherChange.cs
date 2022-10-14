@@ -17,7 +17,6 @@ public class WeatherChange : MonoBehaviour
 
     void WeatherChanger()
     {
-
         if (currentWeather >= 200 && currentWeather < 300)
         {
             // Storm

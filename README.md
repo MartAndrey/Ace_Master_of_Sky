@@ -1,7 +1,7 @@
 # Fighter_Plane
 
 ## In Developing
-- Attributes in unit
+- Attributes in unity 
 - Ternary Operations
 - Arrays, List, Dictionaries 
 - New Input System
@@ -15,3 +15,4 @@
 - Delegates
 - Events
 - Singleton
+- Object Pool

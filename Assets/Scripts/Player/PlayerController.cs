@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb;
 
-    float movementX;
+    float movementX; 
     float movementY;
 
     void Start()
