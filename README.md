@@ -16,3 +16,4 @@
 - Events
 - Singleton
 - Object Pool
+- Observer

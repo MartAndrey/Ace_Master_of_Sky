@@ -6,12 +6,33 @@ public class EnemyLife : MonoBehaviour
 {
     [SerializeField] GameObject explosionPrefab;
 
+    void OnEnable()
+    {
+        GameManager.OnUpdateScore += Deactivate;
+    }
+
+    void OnDisable()
+    {
+        GameManager.OnUpdateScore.Invoke();
+        GameManager.OnUpdateScore -= Deactivate;
+    }
+
+    void Deactivate()
+    {
+        gameObject.SetActive(false);
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(gameObject, 0.2f);
+            Deactivate();
+        }
+
+        if (other.CompareTag("Bullet"))
+        {
+            Deactivate();
         }
     }
 }

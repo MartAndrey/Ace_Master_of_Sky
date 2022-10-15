@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb;
 
-    float movementX; 
+    float movementX;
     float movementY;
 
     void Start()
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.rotation -= movementX * rotSpeed;
-        speed = Mathf.Clamp(speed + movementY, 1.5f , maxSpeed);
+        speed = Mathf.Clamp(speed + movementY, 1.5f, maxSpeed);
 
         rb.velocity = transform.up * speed;
     }
@@ -34,13 +34,14 @@ public class PlayerController : MonoBehaviour
         movementX = movementVector.x;
         movementY = movementVector.y;
     }
-    
+
     void OnFire()
     {
         SoundManager.Instance.PlayShoot();
-        
-        GameObject go  = ObjectPooler.Instance.GetPoolObject("Bullet");
+
+        GameObject go = ObjectPooler.Instance.GetPoolObject("Bullet");
         go.transform.position = transform.position;
-        go.SetActive(true); 
+        go.transform.rotation = transform.rotation;
+        go.SetActive(true);
     }
 }
