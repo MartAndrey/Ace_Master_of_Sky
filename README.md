@@ -17,3 +17,4 @@
 - Singleton
 - Object Pool
 - Observer
+- Effectors
