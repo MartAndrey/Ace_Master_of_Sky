@@ -56,7 +56,7 @@ public class WeatherChange : MonoBehaviour
 
     IEnumerator GetWeather()
     {
-        UnityWebRequest www = UnityWebRequest.Get("TokenWeather");
+        UnityWebRequest www = UnityWebRequest.Get("Token Weather");
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
