@@ -11,11 +11,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject GameOverScreen;
 
-    void OnEnable()
-    {
-        OnUpdateScore += UpdateScoreUI;
-    }
-
     void Awake()
     {
         GameOverScreen.SetActive(false);
@@ -30,11 +25,5 @@ public class GameManager : MonoBehaviour
     public void PlayerKilled()
     {
         OnPlayerDeath?.Invoke();
-    }
-
-    public void UpdateScoreUI()
-    {
-        // Change the value of the score in the UI
-        Debug.Log("Score Update");
     }
 }
