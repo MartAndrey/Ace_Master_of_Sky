@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class PlayerLife : MonoBehaviour
 {
+    [SerializeField] GameObject explosionPrefab;
+
+    public void Death()
+    {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))

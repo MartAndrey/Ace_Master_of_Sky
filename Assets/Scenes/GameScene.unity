@@ -910,9 +910,11 @@ GameObject:
   - component: {fileID: 662815154}
   - component: {fileID: 662815153}
   - component: {fileID: 662815152}
+  - component: {fileID: 662815157}
+  - component: {fileID: 662815156}
   m_Layer: 0
   m_Name: Sea
-  m_TagString: Untagged
+  m_TagString: Sea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1029,8 +1031,46 @@ Transform:
   - {fileID: 1835600375}
   - {fileID: 669098497}
   m_Father: {fileID: 1722316408}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &662815156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662815151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6adf96d407d44164b9395a74e4a01be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &662815157
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662815151}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.01690346, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.9269962, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &669098496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,7 +1085,7 @@ GameObject:
   - component: {fileID: 669098498}
   m_Layer: 0
   m_Name: Sea (2)
-  m_TagString: Untagged
+  m_TagString: Sea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1690,14 +1730,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407925664}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.59, y: -2.78, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -3.9, y: 2.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!114 &1407925668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1792,6 +1832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9088a287b27b37842873187fc350d8b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 5750854819958220215, guid: 8bafcfa8822eec9409fa6f5448503604, type: 3}
 --- !u!1 &1692475281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1824,7 +1865,7 @@ Transform:
   - {fileID: 27308262}
   - {fileID: 1907162944}
   m_Father: {fileID: 1722316408}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1692475283
 SpriteRenderer:
@@ -2095,8 +2136,8 @@ Transform:
   - {fileID: 1020450228}
   - {fileID: 82416675}
   - {fileID: 1791666348}
-  - {fileID: 662815155}
   - {fileID: 1692475282}
+  - {fileID: 662815155}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2198,7 +2239,7 @@ GameObject:
   - component: {fileID: 1835600376}
   m_Layer: 0
   m_Name: Sea (1)
-  m_TagString: Untagged
+  m_TagString: Sea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
