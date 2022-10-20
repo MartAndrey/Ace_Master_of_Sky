@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        GameOverScreen.SetActive(false);
         OnPlayerDeath += ShowGameOverScreem;
     }
 
