@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] float speedY;
 
     float positionY;
-    float maxHight = 20;
+    float maxHight = 16;
     float minHight = 0;
     float time = 20;
 
@@ -39,6 +39,5 @@ public class CameraFollow : MonoBehaviour
         yield return new WaitForSeconds(time);
         StartCoroutine(ChangeHight());
         positionY = Random.Range(minHight, maxHight);
-        Debug.Log(positionY);
     }
 }
