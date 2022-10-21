@@ -5,18 +5,16 @@ using UnityEngine.UI;
 
 public class PlayButton : MonoBehaviour
 {
-    AudioSource audioSource;
-    Button button;
-    Animator animator;
-
     [SerializeField] AudioClip audioPlay;
     [SerializeField] AudioClip audioOver;
+
+    AudioSource audioSource;
+    Button button;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         button = GetComponent<Button>();
-        animator = GetComponent<Animator>();
     }
 
     void Start()
