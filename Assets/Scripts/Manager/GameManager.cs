@@ -9,20 +9,8 @@ public class GameManager : MonoBehaviour
     public static event PlayerDeath OnPlayerDeath;
     public static Action OnUpdateScore;
 
-    [SerializeField] GameObject GameOverScreen;
-
     void Awake()
     {
-        OnPlayerDeath += ShowGameOverScreem;
-    }
 
-    void ShowGameOverScreem()
-    {
-        GameOverScreen.SetActive(true);
-    }
-
-    public void PlayerKilled()
-    {
-        OnPlayerDeath?.Invoke();
     }
 }

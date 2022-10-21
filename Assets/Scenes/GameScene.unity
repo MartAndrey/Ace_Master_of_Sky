@@ -1018,7 +1018,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0.20145702, y: -2.2008977}
+  m_Offset: {x: 0.20145702, y: -2.3798518}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1029,7 +1029,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 19.634775, y: 3.0851393}
+  m_Size: {x: 19.634775, y: 2.7272313}
   m_EdgeRadius: 0
 --- !u!212 &662815154
 SpriteRenderer:
@@ -1123,7 +1123,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2049942, y: -2.1260672}
+  m_Offset: {x: 0.2049942, y: -2.2602825}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1134,7 +1134,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 19.60704, y: 2.8146381}
+  m_Size: {x: 19.60704, y: 2.5462072}
   m_EdgeRadius: 0
 --- !u!1 &702634876
 GameObject:
@@ -2139,7 +2139,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0.201457, y: -2.200898}
+  m_Offset: {x: 0.20145702, y: -2.3351135}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2150,7 +2150,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 19.63478, y: 3.085139}
+  m_Size: {x: 19.63478, y: 2.8167076}
   m_EdgeRadius: 0
 --- !u!212 &1835600378
 SpriteRenderer:
@@ -2229,7 +2229,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.2049942, y: -2.1260672}
+  m_Offset: {x: 0.2049942, y: -2.2602825}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2240,7 +2240,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 19.60704, y: 2.8146381}
+  m_Size: {x: 19.60704, y: 2.5462072}
   m_EdgeRadius: 0
 --- !u!1 &1871928810
 GameObject:
@@ -2271,7 +2271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36f9b1d09494664ababee48d72574d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverScreen: {fileID: 0}
 --- !u!4 &1871928812
 Transform:
   m_ObjectHideFlags: 0

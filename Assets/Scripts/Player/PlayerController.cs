@@ -37,8 +37,6 @@ public class PlayerController : MonoBehaviour
 
     void OnFire()
     {
-        //SoundManager.Instance.PlayShoot();
-
         GameObject go = ObjectPooler.Instance.GetPoolObject("Bullet");
         go.transform.position = transform.position;
         go.transform.rotation = transform.rotation;
