@@ -5,8 +5,6 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
-
-    [SerializeField] AudioClip shoot;
     
     AudioSource audioSource;
 
@@ -26,8 +24,8 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void PlayShoot()
+    public void PlayShoot(AudioClip audio)
     {
-        audioSource.PlayOneShot(shoot);
+        audioSource.PlayOneShot(audio);
     }
 }
