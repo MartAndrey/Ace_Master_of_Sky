@@ -1682,9 +1682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84134df3b5d2e2c4ebff9c9b783c172c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  rotSpeed: 2
-  maxSpeed: 5
+  rateFire: 1
 --- !u!50 &1407925669
 Rigidbody2D:
   serializedVersion: 4
@@ -2426,7 +2424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2466,7 +2464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4088333802876253606, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
