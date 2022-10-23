@@ -6,17 +6,6 @@ public class EnemyLife : MonoBehaviour
 {
     [SerializeField] GameObject explosionPrefab;
 
-    void OnEnable()
-    {
-        GameManager.OnUpdateScore += Deactivate;
-    }
-
-    void OnDisable()
-    {
-        GameManager.OnUpdateScore.Invoke();
-        GameManager.OnUpdateScore -= Deactivate;
-    }
-
     void Deactivate()
     {
         gameObject.SetActive(false);
