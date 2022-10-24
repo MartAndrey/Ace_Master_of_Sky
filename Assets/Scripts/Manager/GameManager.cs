@@ -5,22 +5,29 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
+    public float OffsetBackground { get { return offsetBackground; } }
+
     [SerializeField] GameObject mainCamera;
     [SerializeField] GameObject background;
     [SerializeField] GameObject player;
 
-    float startPositionCamera;
-    float startPositionBackground;
-    float startPlayer;
+    float startPositionCamera, offsetPlayer, offsetBackground;
 
     void Start()
     {
-        GetStartPosition();
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+
+        startPositionCamera = mainCamera.transform.position.x;
     }
 
     void Update()
     {
-        if (mainCamera.transform.position.x >= 1920)
+        if (mainCamera.transform.position.x >= 48)
         {
             SetStartPosition();
 
@@ -29,17 +36,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void GetStartPosition()
-    {
-        startPositionCamera = mainCamera.transform.position.x;
-        startPositionBackground = background.transform.position.x;
-        startPlayer = player.transform.position.x;
-    }
-
     void SetStartPosition()
     {
+        offsetPlayer = player.transform.position.x - mainCamera.transform.position.x;
+        offsetBackground = background.transform.position.x - mainCamera.transform.position.x;
+
         mainCamera.transform.position = new Vector2(startPositionCamera, mainCamera.transform.position.y);
-        background.transform.position = new Vector2(startPositionBackground, background.transform.position.y);
-        player.transform.position = new Vector2(startPlayer, player.transform.position.y);
+        background.transform.position = new Vector2(offsetBackground, background.transform.position.y);
+        player.transform.position = new Vector2(offsetPlayer, player.transform.position.y);
     }
 }

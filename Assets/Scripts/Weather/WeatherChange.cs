@@ -56,7 +56,7 @@ public class WeatherChange : MonoBehaviour
 
     IEnumerator GetWeather()
     {
-        UnityWebRequest www = UnityWebRequest.Get("https://api.openweathermap.org/data/2.5/weather?q=bogota&appid=865e00e1d05dfa074e0eb466d5a9b0e1");
+        UnityWebRequest www = UnityWebRequest.Get("TokenWeather");
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
