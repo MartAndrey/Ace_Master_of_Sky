@@ -7,11 +7,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public float RotSpeed { get { return rotSpeed; } set { rotSpeed = value; } }
+    public float Acceleration { get { return acceleration; } set { acceleration = value; } }
+
     [SerializeField] float speed;
+    [SerializeField] float maxSpeed;
     [SerializeField] float rotSpeed;
-    [SerializeField] float maxSpeed ;
-    [SerializeField] float rateFire; 
-    [SerializeField] float acceleration; 
+    [SerializeField] float rateFire;
+    [SerializeField] float acceleration;
 
     Rigidbody2D rb;
 
@@ -32,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = transform.up * speed;
     }
-    
+
     void OnMove(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
@@ -46,7 +49,7 @@ public class PlayerController : MonoBehaviour
         {
             gunLoaded = false;
             GameObject go = ObjectPooler.Instance.GetPoolObject("Bullet");
-            go.transform.position = transform.position ;
+            go.transform.position = transform.position;
             go.transform.rotation = transform.rotation;
             go.SetActive(true);
 

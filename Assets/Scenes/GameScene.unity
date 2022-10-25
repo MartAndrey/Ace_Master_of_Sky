@@ -2463,6 +2463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rainMaker: {fileID: 1990105489}
+  player: {fileID: 1407925668}
 --- !u!4 &1385067532
 Transform:
   m_ObjectHideFlags: 0
@@ -2724,8 +2725,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  rotSpeed: 2
   maxSpeed: 5
+  rotSpeed: 2
   rateFire: 1
   acceleration: 5
 --- !u!50 &1407925669
@@ -3583,6 +3584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1871928812}
   - component: {fileID: 1871928811}
+  - component: {fileID: 1871928813}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -3602,7 +3604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36f9b1d09494664ababee48d72574d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGameState: 0
+  currentGameState: 1
   mainCamera: {fileID: 1884972344}
   background: {fileID: 1722316404}
   player: {fileID: 1407925664}
@@ -3622,6 +3624,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1871928813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871928810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bba40beeda9efe4c8b6fb68c6260ebb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1876471073
 GameObject:
   m_ObjectHideFlags: 0
