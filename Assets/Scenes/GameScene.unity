@@ -2464,6 +2464,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rainMaker: {fileID: 1990105489}
   player: {fileID: 1407925668}
+  seas:
+  - {fileID: 1835600379}
+  - {fileID: 662815156}
 --- !u!4 &1385067532
 Transform:
   m_ObjectHideFlags: 0

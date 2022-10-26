@@ -8,6 +8,7 @@ public class WeatherChange : MonoBehaviour
 {
     [SerializeField] DigitalRuby.RainMaker.RainScript2D rainMaker;
     [SerializeField] PlayerController player;
+    [SerializeField] Sea[] seas;
 
     int currentWeather;
 
@@ -27,7 +28,7 @@ public class WeatherChange : MonoBehaviour
         else if (currentWeather >= 300 && currentWeather < 400)
         {
             // Drizzle
-            rainMaker.RainIntensity += 0.2f;
+            rainMaker.RainIntensity += 0.2f;    
             Nerfear(10);
         }
         else if (currentWeather >= 400 && currentWeather < 500)
@@ -58,6 +59,18 @@ public class WeatherChange : MonoBehaviour
         {
             // ClearSky
             rainMaker.gameObject.SetActive(false);
+        }
+
+        foreach (Sea item in seas)
+        {
+            if (currentWeather < 800)
+            {
+                item.ChangeSeaColor(true);
+            }
+            else
+            {
+                item.ChangeSeaColor(false);
+            }
         }
     }
 
