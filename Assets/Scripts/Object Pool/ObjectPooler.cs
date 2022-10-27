@@ -2,19 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class ObjectPoolItem
-{
-    public GameObject objectToPool;
-    public int amountToPool;
-}
-
 public class ObjectPooler : MonoBehaviour
 {
     public static ObjectPooler Instance;
 
-    public List<ObjectPoolItem> itemsToPool;
-    public List<GameObject> instancedObjects;
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] int poolSize = 10;
+    [SerializeField] List<GameObject> bulletList;
 
     void Awake()
     {
@@ -26,41 +20,35 @@ public class ObjectPooler : MonoBehaviour
 
     void Start()
     {
-        instancedObjects = new List<GameObject>();
+        AddBulletToPool(poolSize);
+    }
 
-        foreach (ObjectPoolItem item in itemsToPool)
+    void AddBulletToPool(int amount)
+    {
+        for (int i = 0; i < amount; i++)
         {
-            for (int i = 0; i < item.amountToPool; i++)
-            {
-            GameObject go = Instantiate(item.objectToPool);
-            go.SetActive(false);
-            instancedObjects.Add(go);
-            }
+            GameObject bullet = Instantiate(bulletPrefab);
+            bullet.SetActive(false);
+            bulletList.Add(bullet);
+            bullet.transform.parent = transform;
         }
     }
 
-    public GameObject GetPoolObject(string tag)
+    public GameObject GetPoolObject()
     {
-        for (int i = 0; i < instancedObjects.Count; i++)
+        for (int i = 0; i < bulletList.Count; i++)
         {
-            if (!instancedObjects[i].activeInHierarchy && instancedObjects[i].CompareTag(tag))
+            if (!bulletList[i].activeSelf)
             {
-                return instancedObjects[i];
+                bulletList[i].SetActive(true);
+
+                return bulletList[i];
             }
         }
 
-        foreach (ObjectPoolItem item in itemsToPool)
-        {
-            if (item.objectToPool.CompareTag(tag))
-            {
-                GameObject go = Instantiate(item.objectToPool);
-                go.SetActive(false);
-                instancedObjects.Add(go);
+        AddBulletToPool(1);
+        bulletList[bulletList.Count - 1].SetActive(true);
 
-                return go;
-            }
-        }
-
-        return null;
+        return bulletList[bulletList.Count - 1];
     }
 }

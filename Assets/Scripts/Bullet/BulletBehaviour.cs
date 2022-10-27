@@ -16,6 +16,14 @@ public class BulletBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
+        StartCoroutine(TimeLife());
+
         rb.velocity = transform.up * speed;
+    }
+
+    IEnumerator TimeLife()
+    {
+        yield return new WaitForSeconds(5);
+        gameObject.SetActive(false);    
     }
 }

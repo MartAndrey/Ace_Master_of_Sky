@@ -48,10 +48,10 @@ public class PlayerController : MonoBehaviour
         if (gunLoaded)
         {
             gunLoaded = false;
-            GameObject go = ObjectPooler.Instance.GetPoolObject("Bullet");
-            go.transform.position = transform.position;
-            go.transform.rotation = transform.rotation;
-            go.SetActive(true);
+
+            GameObject bullet = ObjectPooler.Instance.GetPoolObject();
+            bullet.transform.position = transform.position;
+            bullet.transform.rotation = transform.rotation;
 
             StartCoroutine(ReloadGun());
         }
