@@ -11,13 +11,15 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameState currentGameState = GameState.StateGame;
 
-    public float OffsetBackground { get { return offsetBackground; } }
-
     [SerializeField] GameObject mainCamera;
     [SerializeField] GameObject background;
     [SerializeField] GameObject player;
-
     [SerializeField] GameObject screenGameOver;
+
+    [Range(0.1f, 10f), SerializeField] float spawnRate;
+    public float OffsetBackground { get { return offsetBackground; } }
+
+    int level = 1;
 
     float startPositionCamera, offsetPlayer, offsetBackground;
 
@@ -29,6 +31,8 @@ public class GameManager : MonoBehaviour
         }
 
         startPositionCamera = mainCamera.transform.position.x;
+
+        StartCoroutine(GetEnemy());
     }
 
     void Update()
@@ -92,5 +96,15 @@ public class GameManager : MonoBehaviour
         }
 
         currentGameState = newGameState;
+    }
+
+    IEnumerator GetEnemy()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1 / spawnRate);
+            SpawnEnemies.Instance.ActiveEnemy();
+            Debug.Log("H");
+        }
     }
 }

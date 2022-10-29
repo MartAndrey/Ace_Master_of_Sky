@@ -24,6 +24,15 @@ public class BulletBehaviour : MonoBehaviour
     IEnumerator TimeLife()
     {
         yield return new WaitForSeconds(5);
-        gameObject.SetActive(false);    
+        gameObject.SetActive(false);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<EnemyPlaneController>().TakeDamage();
+            gameObject.SetActive(false);
+        }
     }
 }

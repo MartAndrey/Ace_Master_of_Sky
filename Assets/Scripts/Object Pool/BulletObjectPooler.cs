@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPooler : MonoBehaviour
+public class BulletObjectPooler : MonoBehaviour
 {
-    public static ObjectPooler Instance;
+    public static BulletObjectPooler Instance;
 
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] int poolSize = 10;

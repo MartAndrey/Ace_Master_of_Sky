@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float rotSpeed;
     [SerializeField] float rateFire;
     [SerializeField] float acceleration;
+    [SerializeField] float damage;
 
     Rigidbody2D rb;
 
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
         {
             gunLoaded = false;
 
-            GameObject bullet = ObjectPooler.Instance.GetPoolObject();
+            GameObject bullet = BulletObjectPooler.Instance.GetPoolObject();
             bullet.transform.position = transform.position;
             bullet.transform.rotation = transform.rotation;
 
