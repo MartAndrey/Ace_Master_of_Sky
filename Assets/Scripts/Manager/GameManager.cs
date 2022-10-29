@@ -8,6 +8,7 @@ public enum GameState { StateMenu, StateGame, StatePause, StateGameOver }
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public static Action OnResetPosition;
 
     [SerializeField] GameState currentGameState = GameState.StateGame;
 
@@ -17,11 +18,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject screenGameOver;
 
     [Range(0.1f, 10f), SerializeField] float spawnRate;
+    public Vector3 CameraCurrentPosition { get; set; }
     public float OffsetBackground { get { return offsetBackground; } }
 
-    int level = 1;
-
     float startPositionCamera, offsetPlayer, offsetBackground;
+
+    void OnEnable()
+    {
+        OnResetPosition += SetStartPosition;
+    }
+
+    void OnDisable()
+    {
+        OnResetPosition -= SetStartPosition;
+    }
 
     void Start()
     {
@@ -37,12 +47,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        CameraCurrentPosition = mainCamera.transform.position;
+
         if (mainCamera.transform.position.x >= 48)
         {
-            SetStartPosition();
-
-            ParallaxEffect parallaxEffect = FindObjectOfType<ParallaxEffect>();
-            parallaxEffect.ResetPosition();
+            OnResetPosition?.Invoke();
         }
     }
 
@@ -104,7 +113,6 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(1 / spawnRate);
             SpawnEnemies.Instance.ActiveEnemy();
-            Debug.Log("H");
         }
     }
 }

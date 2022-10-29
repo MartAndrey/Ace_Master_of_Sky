@@ -8,9 +8,19 @@ public class ParallaxEffect : MonoBehaviour
 
     Transform cameraTransform;
     Vector3 previousCameraPosition;
-    float spriteWidth, startPosition , moveAmount, deltaX;
+    float spriteWidth, startPosition, moveAmount, deltaX;
 
     Vector3 resertPreviousCameraPosition;
+
+    void OnEnable()
+    {
+        GameManager.OnResetPosition += ResetPosition;
+    }
+
+    void OnDisable()
+    {
+        GameManager.OnResetPosition -= ResetPosition;
+    }
 
     void Start()
     {
@@ -21,20 +31,20 @@ public class ParallaxEffect : MonoBehaviour
 
         resertPreviousCameraPosition = previousCameraPosition;
     }
-    
+
     void LateUpdate()
     {
         deltaX = (cameraTransform.position.x - previousCameraPosition.x) * speedParallax;
         moveAmount = cameraTransform.position.x * (1 - speedParallax);
-        
+
         if (deltaX > 0.1f || deltaX < -0.1)
         {
             deltaX = 0;
         }
-        
+
         transform.Translate(new Vector3(deltaX, 0, 0));
         previousCameraPosition = cameraTransform.position;
-        
+
         if (moveAmount > startPosition + spriteWidth)
         {
             transform.Translate(new Vector3(spriteWidth, 0, 0));
