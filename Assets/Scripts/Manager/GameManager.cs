@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     [Range(0.1f, 10f), SerializeField] float spawnRate;
     public Vector3 CameraCurrentPosition { get; set; }
     public float OffsetBackground { get { return offsetBackground; } }
+    public int Score {get; set;}
+    public int Level {get; set;}
 
     float startPositionCamera, offsetPlayer, offsetBackground;
 

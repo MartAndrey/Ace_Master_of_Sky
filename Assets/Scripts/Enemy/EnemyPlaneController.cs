@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EnemyPlaneController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class EnemyPlaneController : MonoBehaviour
     [SerializeField] GameObject explosionPrefab;
     [SerializeField] int damage;
     [SerializeField] int life;
+    [SerializeField] int points;
 
     void OnEnable()
     {
@@ -34,6 +36,7 @@ public class EnemyPlaneController : MonoBehaviour
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             gameObject.SetActive(false);
+            GameManager.Instance.Score += points;
         }
     }
 
@@ -41,8 +44,7 @@ public class EnemyPlaneController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            gameObject.SetActive(false);
+            TakeDamage();
         }
     }
 }
