@@ -7,6 +7,8 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] float speedX;
     [SerializeField] float speedY;
 
+    public float SpeedX { get { return speedX; } }
+
     float positionY;
     float maxHight = 16;
     float minHight = 0;
