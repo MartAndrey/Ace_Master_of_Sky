@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -2815383765214258225}
   m_Layer: 6
   m_Name: Ship Big
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,3 +167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63017cbb407a37744ab8f60ef471d527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 5750854819958220215, guid: 8bafcfa8822eec9409fa6f5448503604, type: 3}
+  damage: 0.5
+  life: 2
+  points: 120
+  bulletPrefab: {fileID: 11568674720388793, guid: 635645f9cb70baa409a02513aa56ba2b, type: 3}
+  distanceToShoot: 5
+  speedBullet: 5
+  rateFire: 2

@@ -19,9 +19,10 @@ public class GameManager : MonoBehaviour
 
     [Range(0.1f, 10f), SerializeField] float spawnRate;
     public Vector3 CameraCurrentPosition { get; set; }
+    public float SpawnRate { get { return spawnRate; } }
     public float OffsetBackground { get { return offsetBackground; } }
-    public int Score {get; set;}
-    public int Level {get; set;}
+    public int Score { get; set; }
+    public int Level { get; set; }
 
     float startPositionCamera, offsetPlayer, offsetBackground;
 
@@ -35,13 +36,16 @@ public class GameManager : MonoBehaviour
         OnResetPosition -= SetStartPosition;
     }
 
-    void Start()
+    void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
         }
+    }
 
+    void Start()
+    {
         startPositionCamera = mainCamera.transform.position.x;
 
         StartCoroutine(GetEnemy());

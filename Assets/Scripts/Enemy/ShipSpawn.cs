@@ -7,6 +7,7 @@ public class ShipSpawn : MonoBehaviour
     [SerializeField] CameraFollow mainCamera;
     [SerializeField] GameObject spawnPoint;
     [SerializeField] GameObject[] listShips;
+    float spawnRate;
 
     float speed;
 
@@ -17,12 +18,18 @@ public class ShipSpawn : MonoBehaviour
 
     void Start()
     {
+        spawnRate = GameManager.Instance.SpawnRate;
         speed = mainCamera.SpeedX;
         StartCoroutine(SpawnShipRutiner());
     }
 
     void Update()
     {
+        if (spawnRate != GameManager.Instance.SpawnRate)
+        {
+            spawnRate = GameManager.Instance.SpawnRate;
+        }
+
         transform.position += transform.right * speed * Time.deltaTime;
     }
 
@@ -42,9 +49,8 @@ public class ShipSpawn : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(1 / spawnRate);
             SpawnShip();
-
         }
     }
 

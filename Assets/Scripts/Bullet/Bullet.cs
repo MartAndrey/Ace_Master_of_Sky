@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class BulletBehaviour : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     [SerializeField] float speed;
 
@@ -31,7 +31,7 @@ public class BulletBehaviour : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemyPlaneController>().TakeDamage();
+            other.GetComponent<EnemyBaseController>().TakeDamage();
             gameObject.SetActive(false);
         }
     }
