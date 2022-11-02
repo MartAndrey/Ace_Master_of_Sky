@@ -49,15 +49,19 @@ public class EnemyShipController : EnemyBaseController
         shootLoaded = true;
     }
 
-    public override void TakeDamage()
+    protected override void DisableGameObject()
     {
-        life--;
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+        GameManager.Instance.Score += points;
+    }
 
-        if (life <= 0)
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.CompareTag("Player"))
         {
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-            GameManager.Instance.Score += points;
+            DisableGameObject();
+            other.collider.GetComponent<PlayerLife>().ChangeHealth(damage);
         }
     }
 }

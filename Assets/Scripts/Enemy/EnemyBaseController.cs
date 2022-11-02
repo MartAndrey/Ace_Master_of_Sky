@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnemyBaseController : MonoBehaviour
 {
-    [SerializeField] protected  GameObject explosionPrefab;
+    [SerializeField] protected GameObject explosionPrefab;
     [SerializeField] protected float damage;
     [SerializeField] protected int life;
-    [SerializeField] protected  int points;
+    [SerializeField] protected int points;
 
     void OnEnable()
     {
@@ -25,23 +25,20 @@ public class EnemyBaseController : MonoBehaviour
         transform.position = new Vector2(offsetEnemy, transform.position.y);
     }
 
-    public virtual void TakeDamage()
+    public void TakeDamage()
     {
         life--;
 
         if (life <= 0)
         {
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            gameObject.SetActive(false);
-            GameManager.Instance.Score += points;
+            DisableGameObject();
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    protected virtual void DisableGameObject()
     {
-        if (other.collider.CompareTag("Player"))
-        {
-            TakeDamage();
-        }
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        gameObject.SetActive(false);
+        GameManager.Instance.Score += points;
     }
 }
