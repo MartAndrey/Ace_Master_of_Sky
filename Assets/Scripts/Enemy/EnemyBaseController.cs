@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class EnemyBaseController : MonoBehaviour
 {
+    public float Damage { get { return damage; } }
+
     [SerializeField] protected GameObject explosionPrefab;
     [SerializeField] protected float damage;
-    [SerializeField] protected int life;
+    [SerializeField] protected float health;
     [SerializeField] protected int points;
 
     void OnEnable()
@@ -25,11 +27,11 @@ public class EnemyBaseController : MonoBehaviour
         transform.position = new Vector2(offsetEnemy, transform.position.y);
     }
 
-    public void TakeDamage()
+    public void ChangeHealth(float amount)
     {
-        life--;
+        health -= amount;
 
-        if (life <= 0)
+        if (health <= 0)
         {
             DisableGameObject();
         }

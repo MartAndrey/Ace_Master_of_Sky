@@ -26,11 +26,11 @@ public class Sea : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.collider.CompareTag("Player"))
         {
-            other.GetComponent<PlayerLife>().Death();
+            other.collider.GetComponent<PlayerLife>().Death();
         }
     }
 }

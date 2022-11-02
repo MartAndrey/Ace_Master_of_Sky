@@ -8,4 +8,15 @@ public class BulletShip : MonoBehaviour
     {
         Destroy(gameObject, 3);
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        EnemyShipController ship = FindObjectOfType<EnemyShipController>();
+
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<PlayerLife>().ChangeHealth(ship.Damage);
+            Destroy(gameObject);
+        }
+    }
 }

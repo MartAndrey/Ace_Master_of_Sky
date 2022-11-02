@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7850644849083435548}
   - component: {fileID: -2515621547791432727}
   - component: {fileID: 1553904297357699564}
+  - component: {fileID: 717836597462047799}
   m_Layer: 0
   m_Name: Bullet Ship
   m_TagString: Untagged
@@ -98,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ead4a153ce8f7e4f9656e8901d9c74c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
 --- !u!50 &1553904297357699564
 Rigidbody2D:
   serializedVersion: 4
@@ -120,3 +120,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!70 &717836597462047799
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11568674720388793}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.014034284, y: 0.0019136628}
+  m_Size: {x: 0.20074293, y: 0.059124753}
+  m_Direction: 1

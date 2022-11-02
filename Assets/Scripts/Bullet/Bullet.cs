@@ -29,9 +29,11 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        PlayerController player = FindObjectOfType<PlayerController>();
+        
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemyBaseController>().TakeDamage();
+            other.GetComponent<EnemyBaseController>().ChangeHealth(player.Damage);
             gameObject.SetActive(false);
         }
     }

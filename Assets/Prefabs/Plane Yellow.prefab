@@ -209,7 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 5750854819958220215, guid: 8bafcfa8822eec9409fa6f5448503604, type: 3}
   damage: 1
-  life: 2
+  health: 2
   points: 100
 --- !u!70 &733388648365175473
 CapsuleCollider2D:

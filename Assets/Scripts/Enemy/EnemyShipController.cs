@@ -34,6 +34,7 @@ public class EnemyShipController : EnemyBaseController
     void ShootBullet()
     {
         shootLoaded = false;
+        
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
