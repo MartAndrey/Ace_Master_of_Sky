@@ -16,14 +16,14 @@ public class ScreenChangeTransition : MonoBehaviour
         }
     }
 
-    public void ChangeScreen(GameObject screen)
+    public void ChangeScreen(GameObject screen, bool state)
     {
-        StartCoroutine(ChangeScreenRutiner(screen, time));
+        StartCoroutine(ChangeScreenRutiner(screen, state, time));
     }
 
-    IEnumerator ChangeScreenRutiner(GameObject screen, float time)
+    IEnumerator ChangeScreenRutiner(GameObject screen, bool state, float time)
     {
         yield return new WaitForSeconds(time);
-        screen.SetActive(true);
+        screen.SetActive(state);
     }
 }

@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject mainCamera;
     [SerializeField] GameObject background;
     [SerializeField] GameObject player;
-    [SerializeField] GameObject screenGameOver;
 
     [Range(0.1f, 10f), SerializeField] float spawnRate;
     public Vector3 CameraCurrentPosition { get; set; }
@@ -107,7 +106,7 @@ public class GameManager : MonoBehaviour
         }
         else if (newGameState == GameState.StateGameOver)
         {
-            ScreenChangeTransition.Instance.ChangeScreen(screenGameOver);
+            ScreenManager.Instance.ShowGameOver();
         }
 
         currentGameState = newGameState;
