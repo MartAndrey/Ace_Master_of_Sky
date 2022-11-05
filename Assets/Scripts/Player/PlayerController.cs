@@ -38,16 +38,16 @@ public class PlayerController : MonoBehaviour
         rb.velocity = transform.up * speed;
     }
 
-    void OnMove(InputValue movementValue)
+    public void OnMove(InputAction.CallbackContext context)
     {
-        Vector2 movementVector = movementValue.Get<Vector2>();
+        Vector2 movementVector = context.ReadValue<Vector2>();
         movementX = movementVector.x;
         movementY = movementVector.y;
     }
 
-    void OnFire()
+    public void OnFire(InputAction.CallbackContext context)
     {
-        if (gunLoaded)
+        if (gunLoaded && context.performed)
         {
             gunLoaded = false;
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum GameState { StateMenu, StateGame, StatePause, StateGameOver }
 
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
     public int Score { get; set; }
     public int Level { get; set; }
 
+    Keyboard keyboard;
+
     float startPositionCamera, offsetPlayer, offsetBackground;
 
     void OnEnable()
@@ -41,6 +44,8 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        keyboard = Keyboard.current;
     }
 
     void Start()
@@ -52,12 +57,21 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (keyboard.escapeKey.wasPressedThisFrame)
+        {
+            Pause();
+        }
+
         CameraCurrentPosition = mainCamera.transform.position;
 
         if (mainCamera.transform.position.x >= 48)
         {
             OnResetPosition?.Invoke();
         }
+    }
+    public void Pause()
+    {
+        ScreenManager.Instance.ShowPause();
     }
 
     void SetStartPosition()
