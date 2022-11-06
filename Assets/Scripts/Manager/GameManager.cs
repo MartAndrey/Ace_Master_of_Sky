@@ -13,16 +13,16 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameState currentGameState = GameState.StateGame;
 
-    [SerializeField] GameObject mainCamera;
-    [SerializeField] GameObject background;
-    [SerializeField] GameObject player;
-
-    [Range(0.1f, 10f), SerializeField] float spawnRate;
     public Vector3 CameraCurrentPosition { get; set; }
     public float SpawnRate { get { return spawnRate; } }
     public float OffsetBackground { get { return offsetBackground; } }
     public int Score { get; set; }
     public int Level { get; set; }
+
+    [SerializeField] GameObject mainCamera;
+    [SerializeField] GameObject background;
+    [SerializeField] GameObject player;
+    [Range(0.1f, 10f), SerializeField] float spawnRate;
 
     Keyboard keyboard;
 
@@ -59,8 +59,9 @@ public class GameManager : MonoBehaviour
     {
         CheckGameStatus();
 
-        if (keyboard.escapeKey.wasPressedThisFrame)
+        if (keyboard.escapeKey.wasPressedThisFrame && !PauseMenuController.Instance.IsTransition)
         {
+            StartCoroutine(PauseMenuController.Instance.CheckTransition());
             StatePause();
         }
 
@@ -129,9 +130,9 @@ public class GameManager : MonoBehaviour
             ScreenManager.Instance.CheckPauseStatus();
 
             // Switch to game state if you press the ESC key while paused
-            if(currentGameState == GameState.StatePause)
+            if (currentGameState == GameState.StatePause)
             {
-                newGameState = GameState.StateGame;
+                StartCoroutine(SwitchGameStateRutiner());
             }
         }
         else if (newGameState == GameState.StateGameOver)
@@ -149,5 +150,11 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1 / spawnRate);
             SpawnEnemies.Instance.ActiveEnemy();
         }
+    }
+
+    public IEnumerator SwitchGameStateRutiner()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        currentGameState = GameState.StateGame;
     }
 }

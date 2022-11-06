@@ -29,8 +29,9 @@ public class ScreenManager : MonoBehaviour
         }
         else
         {
-            HidePause(1);
+            HidePause();
             ShowGame();
+
             PauseMenuController.Instance.FadeOut();
         }
     }

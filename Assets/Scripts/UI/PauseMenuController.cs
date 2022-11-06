@@ -6,6 +6,7 @@ public class PauseMenuController : MonoBehaviour
 {
     public static PauseMenuController Instance;
 
+    public bool IsTransition { get; set; }
     Animator animator;
 
     void Awake()
@@ -14,8 +15,9 @@ public class PauseMenuController : MonoBehaviour
         {
             Instance = this;
         }
-        
+
         animator = GetComponent<Animator>();
+        IsTransition = false;
     }
 
     public void FadeIn()
@@ -27,5 +29,12 @@ public class PauseMenuController : MonoBehaviour
     public void FadeOut()
     {
         animator.SetTrigger("Transition");
+    }
+
+    public IEnumerator CheckTransition()
+    {
+        IsTransition = true;
+        yield return new WaitForSecondsRealtime(1);
+        IsTransition = false;
     }
 }
