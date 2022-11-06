@@ -57,9 +57,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        CheckGameStatus();
+
         if (keyboard.escapeKey.wasPressedThisFrame)
         {
-            Pause();
+            StatePause();
         }
 
         CameraCurrentPosition = mainCamera.transform.position;
@@ -69,9 +71,17 @@ public class GameManager : MonoBehaviour
             OnResetPosition?.Invoke();
         }
     }
-    public void Pause()
+
+    void CheckGameStatus()
     {
-        ScreenManager.Instance.ShowPause();
+        if (currentGameState != GameState.StateGame)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 
     void SetStartPosition()
@@ -108,15 +118,21 @@ public class GameManager : MonoBehaviour
     {
         if (newGameState == GameState.StateMenu)
         {
-
+            // TODO: ScreenManager.Instance.ShowMenu();
         }
         else if (newGameState == GameState.StateGame)
         {
-
+            ScreenManager.Instance.ShowGame();
         }
         else if (newGameState == GameState.StatePause)
         {
+            ScreenManager.Instance.CheckPauseStatus();
 
+            // Switch to game state if you press the ESC key while paused
+            if(currentGameState == GameState.StatePause)
+            {
+                newGameState = GameState.StateGame;
+            }
         }
         else if (newGameState == GameState.StateGameOver)
         {
