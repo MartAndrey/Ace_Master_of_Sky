@@ -15,12 +15,12 @@ public class Fade : MonoBehaviour
     [ContextMenu("FadeIn")]
     public void FadeIn()
     {
-        spriteRenderer.DOFade(1, 2);
+        spriteRenderer.DOFade(1, 2).SetUpdate(true);
     }
 
     [ContextMenu("FadeOut")]
     public void FadeOut()
     {
-        spriteRenderer.DOFade(0, 2);
+        spriteRenderer.DOFade(0, 2).SetUpdate(true);
     }
 }

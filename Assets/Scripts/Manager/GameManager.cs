@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
 public enum GameState { StateMenu, StateGame, StatePause, StateGameOver }
@@ -79,7 +80,7 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
         }
-        else
+        else 
         {
             Time.timeScale = 1;
         }
@@ -120,10 +121,13 @@ public class GameManager : MonoBehaviour
         if (newGameState == GameState.StateMenu)
         {
             // TODO: ScreenManager.Instance.ShowMenu();
+            SceneManager.LoadScene("MenuScene");
         }
         else if (newGameState == GameState.StateGame)
         {
+            SceneManager.LoadScene("GameScene");
             ScreenManager.Instance.ShowGame();
+            
         }
         else if (newGameState == GameState.StatePause)
         {

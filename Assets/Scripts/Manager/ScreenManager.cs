@@ -46,12 +46,12 @@ public class ScreenManager : MonoBehaviour
         ScreenChangeTransition.Instance.ChangeScreen(screenGame, false, time);
     }
 
-    void ShowPause(float time = 1)
+    public void ShowPause(float time = 1)
     {
         ScreenChangeTransition.Instance.ChangeScreen(screenPause, true, time);
     }
 
-    void HidePause(float time = 1)
+    public void HidePause(float time = 1)
     {
         ScreenChangeTransition.Instance.ChangeScreen(screenPause, false, time);
     }

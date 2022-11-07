@@ -37,4 +37,42 @@ public class PauseMenuController : MonoBehaviour
         yield return new WaitForSecondsRealtime(1);
         IsTransition = false;
     }
+
+    public void MainMenu()
+    {
+        SwitchScene("MenuScene");
+    }
+
+    public void Restart()
+    {
+        SwitchScene("GameScene");
+    }
+
+    public void Resume()
+    {
+        GameManager.Instance.StatePause();
+    }
+
+    void SwitchScene(string nameScene)
+    {
+        Fade fade = FindObjectOfType<Fade>();
+        fade.FadeIn();
+
+        ScreenManager.Instance.HidePause(0);
+        StartCoroutine(SwitchSceneRutiner(nameScene));
+    }
+
+    IEnumerator SwitchSceneRutiner(string nameScene)
+    {
+        yield return new WaitForSecondsRealtime(2);
+        Time.timeScale = 1;
+        if (nameScene == "MenuScene")
+        {
+            GameManager.Instance.StateMenu();
+        }
+        else if (nameScene == "GameScene")
+        {
+            GameManager.Instance.StateGame();
+        }
+    }
 }

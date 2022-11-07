@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 179232000}
   - component: {fileID: 179231999}
   m_Layer: 5
-  m_Name: Button Resumen
+  m_Name: Button Resume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -918,7 +918,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 179232000}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1597342692}
+        m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &179232000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -988,7 +1000,7 @@ Transform:
   - {fileID: 1339357182}
   - {fileID: 1068454285}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &183906516
 GameObject:
@@ -1257,7 +1269,7 @@ Transform:
   m_Children:
   - {fileID: 655609987}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &299781505
 GameObject:
@@ -1393,7 +1405,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'RESUMEN! '
+  m_text: 'RESUME! '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a10d9a94b06d464b85542d42c7bff64, type: 2}
   m_sharedMaterial: {fileID: 8248411670014766715, guid: 1a10d9a94b06d464b85542d42c7bff64, type: 2}
@@ -1636,7 +1648,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &362467507
 MonoBehaviour:
@@ -1831,7 +1843,7 @@ RectTransform:
   m_Children:
   - {fileID: 1905799755}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2033,6 +2045,7 @@ Transform:
   m_Children:
   - {fileID: 583549187}
   - {fileID: 391725983}
+  - {fileID: 1226037226}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2395,7 +2408,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &655609986
 GameObject:
@@ -2786,7 +2799,7 @@ GameObject:
   - component: {fileID: 715784369}
   - component: {fileID: 715784368}
   m_Layer: 5
-  m_Name: Resumen
+  m_Name: Resume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2934,7 +2947,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 732857334}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1597342692}
+        m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &732857334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3199,7 +3224,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &816656233
 MonoBehaviour:
@@ -3845,6 +3870,11 @@ Transform:
   m_Father: {fileID: 391725983}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1226037226 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
+  m_PrefabInstance: {fileID: 4088333801862572472}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1317275510
 GameObject:
   m_ObjectHideFlags: 0
@@ -3940,7 +3970,7 @@ RectTransform:
   - {fileID: 299781506}
   - {fileID: 775153788}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4077,7 +4107,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1370858379}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1597342692}
+        m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1370858379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4195,7 +4237,7 @@ Transform:
   m_Children:
   - {fileID: 1990105488}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1395112149
 GameObject:
@@ -4563,7 +4605,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!114 &1407925668
 MonoBehaviour:
@@ -4920,7 +4962,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1476709971
 GameObject:
@@ -5232,7 +5274,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597342687}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -5261,7 +5303,7 @@ RectTransform:
   - {fileID: 572115971}
   - {fileID: 65349258}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5497,7 +5539,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1692475281
 GameObject:
@@ -5701,7 +5743,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1714769672
 GameObject:
@@ -5834,7 +5876,7 @@ Transform:
   - {fileID: 1692475282}
   - {fileID: 63738044}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1835600374
 GameObject:
@@ -6262,7 +6304,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1871928813
 MonoBehaviour:
@@ -6442,7 +6484,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1888293886
 GameObject:
@@ -6985,11 +7027,15 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 519420032}
     m_Modifications:
+    - target: {fileID: 4088333802876253592, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6997,11 +7043,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7009,15 +7055,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4088333802876253593, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7037,7 +7083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4088333802876253606, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
