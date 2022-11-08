@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenuController : MonoBehaviour
 {
     public static PauseMenuController Instance;
 
     public bool IsTransition { get; set; }
+    public float ScrollbarValue { get { return scrollBar.value; } }
+
+    [SerializeField] Scrollbar scrollBar;
     Animator animator;
 
     void Awake()
@@ -18,6 +22,14 @@ public class PauseMenuController : MonoBehaviour
 
         animator = GetComponent<Animator>();
         IsTransition = false;
+    }
+
+    void Update()
+    {
+        if (scrollBar.value <= 0.0f)
+        {
+            scrollBar.value = 0.0001f;
+        }
     }
 
     public void FadeIn()

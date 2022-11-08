@@ -5274,7 +5274,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597342687}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -5322,6 +5322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0b0c87c0c35d34382351f5687af08b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollBar: {fileID: 2085531397}
 --- !u!95 &1597342693
 Animator:
   serializedVersion: 4
@@ -7144,7 +7145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4088333802876253606, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ac61d00916431048a60e3b7bc5f3250, type: 3}
