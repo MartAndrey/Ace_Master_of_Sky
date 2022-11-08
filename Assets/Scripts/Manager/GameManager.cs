@@ -13,10 +13,11 @@ public class GameManager : MonoBehaviour
     public static Action OnResetPosition;
 
     [SerializeField] GameState currentGameState = GameState.StateGame;
+    public GameState CurrentGameState { get { return currentGameState; } }
 
-    public Vector3 CameraCurrentPosition { get; set; }
     public float SpawnRate { get { return spawnRate; } }
     public float OffsetBackground { get { return offsetBackground; } }
+    public Vector3 CameraCurrentPosition { get; set; }
     public int Score { get; set; }
     public int Level { get; set; }
 
@@ -80,7 +81,7 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
         }
-        else 
+        else
         {
             Time.timeScale = 1;
         }
@@ -127,7 +128,7 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("GameScene");
             ScreenManager.Instance.ShowGame();
-            
+
         }
         else if (newGameState == GameState.StatePause)
         {

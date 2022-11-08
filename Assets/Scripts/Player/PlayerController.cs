@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        if (gunLoaded && context.performed)
+        if (gunLoaded && context.performed && GameManager.Instance.CurrentGameState == GameState.StateGame)
         {
             gunLoaded = false;
 

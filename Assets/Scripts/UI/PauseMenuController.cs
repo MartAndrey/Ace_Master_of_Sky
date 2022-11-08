@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PauseMenuController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PauseMenuController : MonoBehaviour
     public float ScrollbarValue { get { return scrollBar.value; } }
 
     [SerializeField] Scrollbar scrollBar;
+    [SerializeField] Image imageResume;
+    [SerializeField] TMP_Text textResume;
     Animator animator;
 
     void Awake()
@@ -63,6 +66,18 @@ public class PauseMenuController : MonoBehaviour
     public void Resume()
     {
         GameManager.Instance.StatePause();
+    }
+
+    public void SelectResume()
+    {
+        imageResume.color = Color.white;
+        textResume.color = Color.white;
+    }
+
+    public void DeselectResume()
+    {
+        imageResume.color = Color.black;
+        textResume.color = Color.black;
     }
 
     void SwitchScene(string nameScene)
