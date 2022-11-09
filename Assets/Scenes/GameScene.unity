@@ -3279,7 +3279,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816656229}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
@@ -5371,6 +5371,7 @@ MonoBehaviour:
   scrollBar: {fileID: 2085531397}
   imageResume: {fileID: 983822609}
   textResume: {fileID: 312549480}
+  inputSystemUI: {fileID: 816656233}
 --- !u!95 &1597342693
 Animator:
   serializedVersion: 4

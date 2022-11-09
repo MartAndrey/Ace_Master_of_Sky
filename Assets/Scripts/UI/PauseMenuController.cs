@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem.UI;
 
 public class PauseMenuController : MonoBehaviour
 {
     public static PauseMenuController Instance;
 
     public bool IsTransition { get; set; }
+    public bool InputSystemUI { get { return inputSystemUI.enabled; } set { inputSystemUI.enabled = value; } }
     public float ScrollbarValue { get { return scrollBar.value; } }
 
     [SerializeField] Scrollbar scrollBar;
     [SerializeField] Image imageResume;
     [SerializeField] TMP_Text textResume;
+    [SerializeField] InputSystemUIInputModule inputSystemUI;
+
     Animator animator;
 
     void Awake()
@@ -27,12 +31,32 @@ public class PauseMenuController : MonoBehaviour
         IsTransition = false;
     }
 
+    void OnEnable()
+    {
+        LoadData();
+    }
+
+    void OnDisable()
+    {
+        SaveData();
+    }
+
     void Update()
     {
         if (scrollBar.value <= 0.0f)
         {
             scrollBar.value = 0.0001f;
         }
+    }
+
+    void SaveData()
+    {
+        PlayerPrefs.SetFloat("ScrollbarValue", scrollBar.value);
+    }
+
+    void LoadData()
+    {
+        scrollBar.value = PlayerPrefs.GetFloat("ScrollbarValue");
     }
 
     public void FadeIn()
@@ -92,7 +116,9 @@ public class PauseMenuController : MonoBehaviour
     IEnumerator SwitchSceneRutiner(string nameScene)
     {
         yield return new WaitForSecondsRealtime(2);
+
         Time.timeScale = 1;
+
         if (nameScene == "MenuScene")
         {
             GameManager.Instance.StateMenu();

@@ -26,6 +26,7 @@ public class ScreenManager : MonoBehaviour
             HideGame(0);
 
             PauseMenuController.Instance.FadeIn();
+            PauseMenuController.Instance.InputSystemUI = true;
         }
         else
         {
@@ -33,6 +34,7 @@ public class ScreenManager : MonoBehaviour
             ShowGame();
 
             PauseMenuController.Instance.FadeOut();
+            PauseMenuController.Instance.InputSystemUI = false;
         }
     }
 

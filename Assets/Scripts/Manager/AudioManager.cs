@@ -7,9 +7,9 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] AudioMixer audioMixer;
 
-    void Start()
+    private void Start()
     {
-        ControlAudio(PauseMenuController.Instance.ScrollbarValue);       
+        ControlAudio(PauseMenuController.Instance.ScrollbarValue);
     }
 
     public void ControlAudio(float scrollbarAudio)
