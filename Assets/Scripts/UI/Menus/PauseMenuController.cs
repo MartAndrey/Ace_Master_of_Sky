@@ -13,7 +13,7 @@ public class PauseMenuController : MonoBehaviour
     public bool InputSystemUI { get { return inputSystemUI.enabled; } set { inputSystemUI.enabled = value; } }
     public float ScrollbarValue { get { return scrollBar.value; } }
 
-    [SerializeField] Scrollbar scrollBar;
+    [SerializeField] Scrollbars scrollBar;
     [SerializeField] Image imageResume;
     [SerializeField] TMP_Text textResume;
     [SerializeField] InputSystemUIInputModule inputSystemUI;

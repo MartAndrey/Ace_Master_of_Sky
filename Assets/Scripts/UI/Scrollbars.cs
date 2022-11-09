@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayButton : MonoBehaviour
+public class Scrollbars : MonoBehaviour
 {
     [SerializeField] AudioClip audioPlay;
     [SerializeField] AudioClip audioOver;
 
     AudioSource audioSource;
-    Button button;
+    Scrollbar button;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        button = GetComponent<Button>();
+        button = GetComponent<Scrollbar>();
     }
 
     void Start()
     {
-        button.onClick.AddListener(PlaySound);
+        // button.onClick.AddListener(PlaySound);
     }
 
     void PlaySound()
@@ -32,3 +32,4 @@ public class PlayButton : MonoBehaviour
         audioSource.PlayOneShot(audioOver);
     }
 }
+
