@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using UnityEngine.InputSystem.UI;
 
 public class PauseMenuController : MonoBehaviour
@@ -11,11 +10,12 @@ public class PauseMenuController : MonoBehaviour
 
     public bool IsTransition { get; set; }
     public bool InputSystemUI { get { return inputSystemUI.enabled; } set { inputSystemUI.enabled = value; } }
-    public float ScrollbarValue { get { return scrollBar.value; } }
+    public float ScrollbarValueBackground { get { return scrollBarBackground.value; } }
+    public float ScrollBarValueSFX { get { return scrollBarSFX.value; } }
 
-    [SerializeField] Scrollbars scrollBar;
-    [SerializeField] Image imageResume;
-    [SerializeField] TMP_Text textResume;
+    [SerializeField] Scrollbar scrollBarBackground;
+    [SerializeField] Scrollbar scrollBarSFX;
+    
     [SerializeField] InputSystemUIInputModule inputSystemUI;
 
     Animator animator;
@@ -43,20 +43,27 @@ public class PauseMenuController : MonoBehaviour
 
     void Update()
     {
-        if (scrollBar.value <= 0.0f)
+        if (scrollBarBackground.value <= 0.0f)
         {
-            scrollBar.value = 0.0001f;
+            scrollBarBackground.value = 0.0001f;
+        }
+        
+        if (scrollBarSFX.value <= 0.0f)
+        {
+            scrollBarSFX.value = 0.0001f;
         }
     }
 
     void SaveData()
     {
-        PlayerPrefs.SetFloat("ScrollbarValue", scrollBar.value);
+        PlayerPrefs.SetFloat("ScrollbarValueBackground", scrollBarBackground.value);
+        PlayerPrefs.SetFloat("ScrollbarValueSFX", scrollBarSFX.value);
     }
 
     void LoadData()
     {
-        scrollBar.value = PlayerPrefs.GetFloat("ScrollbarValue");
+        scrollBarBackground.value = PlayerPrefs.GetFloat("ScrollbarValueBackground");
+        scrollBarSFX.value = PlayerPrefs.GetFloat("ScrollbarValueSFX");
     }
 
     public void FadeIn()
@@ -92,17 +99,7 @@ public class PauseMenuController : MonoBehaviour
         GameManager.Instance.StatePause();
     }
 
-    public void SelectResume()
-    {
-        imageResume.color = Color.white;
-        textResume.color = Color.white;
-    }
-
-    public void DeselectResume()
-    {
-        imageResume.color = Color.black;
-        textResume.color = Color.black;
-    }
+    
 
     void SwitchScene(string nameScene)
     {

@@ -3,33 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Scrollbars : MonoBehaviour
+public class Scrollbars : BaseUI
 {
-    [SerializeField] AudioClip audioPlay;
-    [SerializeField] AudioClip audioOver;
-
-    AudioSource audioSource;
-    Scrollbar button;
+    Scrollbar scrollbar;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        button = GetComponent<Scrollbar>();
-    }
-
-    void Start()
-    {
-        // button.onClick.AddListener(PlaySound);
-    }
-
-    void PlaySound()
-    {
-        audioSource.PlayOneShot(audioPlay);
-    }
-
-    public void OverSound()
-    {
-        audioSource.PlayOneShot(audioOver);
+        scrollbar = GetComponent<Scrollbar>();
     }
 }
-

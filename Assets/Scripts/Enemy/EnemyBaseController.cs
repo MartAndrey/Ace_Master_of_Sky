@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBaseController : MonoBehaviour
+public abstract class EnemyBaseController : MonoBehaviour
 {
     public float Damage { get { return damage; } }
 

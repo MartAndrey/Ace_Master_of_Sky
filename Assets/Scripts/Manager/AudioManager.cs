@@ -5,15 +5,40 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] AudioMixer audioMixer;
+    bool isFirstTime;
+
+    [SerializeField] AudioMixer audioMixerBackground;
+    [SerializeField] AudioMixer audioMixerSFX;
 
     private void Start()
     {
-        ControlAudio(PauseMenuController.Instance.ScrollbarValue);
+        isFirstTime = false;
+
+        ControlAudioBackground(PauseMenuController.Instance.ScrollbarValueBackground);
+        ControlAudioSFX(PauseMenuController.Instance.ScrollBarValueSFX);
     }
 
-    public void ControlAudio(float scrollbarAudio)
+    public void ControlAudioBackground(float scrollbarAudio)
     {
-        audioMixer.SetFloat("Music Volume", Mathf.Log10(scrollbarAudio) * 20);
+        audioMixerBackground.SetFloat("Background Music", Mathf.Log10(scrollbarAudio) * 20);
+
+        if (isFirstTime)
+        {
+            Scrollbars scrollbar = FindObjectOfType<Scrollbars>();
+            scrollbar.OverSound();
+        }
+    }
+
+    public void ControlAudioSFX(float scrollbarAudio)
+    {
+        audioMixerSFX.SetFloat("Sound Effects", Mathf.Log10(scrollbarAudio) * 20);
+
+        if (isFirstTime)
+        {
+            Scrollbars scrollbar = FindObjectOfType<Scrollbars>();
+            scrollbar.OverSound();
+        }
+
+        isFirstTime = true;
     }
 }

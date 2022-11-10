@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Buttons : MonoBehaviour
+public class Buttons : BaseUI
 {
-    [SerializeField] AudioClip audioPlay;
-    [SerializeField] AudioClip audioOver;
-
-    AudioSource audioSource;
     Button button;
 
     void Awake()
@@ -20,15 +16,5 @@ public class Buttons : MonoBehaviour
     void Start()
     {
         button.onClick.AddListener(PlaySound);
-    }
-
-    void PlaySound()
-    {
-        audioSource.PlayOneShot(audioPlay);
-    }
-
-    public void OverSound()
-    {
-        audioSource.PlayOneShot(audioOver);
     }
 }
