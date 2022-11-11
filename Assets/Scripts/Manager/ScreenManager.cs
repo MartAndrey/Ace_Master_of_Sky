@@ -26,7 +26,6 @@ public class ScreenManager : MonoBehaviour
             HideGame(0);
 
             PauseMenuController.Instance.FadeIn();
-            PauseMenuController.Instance.InputSystemUI = true;
         }
         else
         {
@@ -34,7 +33,6 @@ public class ScreenManager : MonoBehaviour
             ShowGame();
 
             PauseMenuController.Instance.FadeOut();
-            PauseMenuController.Instance.InputSystemUI = false;
         }
     }
 
@@ -51,20 +49,24 @@ public class ScreenManager : MonoBehaviour
     public void ShowPause(float time = 1)
     {
         ScreenChangeTransition.Instance.ChangeScreen(screenPause, true, time);
+        GameManager.Instance.InputSystemUI = true;
     }
 
     public void HidePause(float time = 1)
     {
         ScreenChangeTransition.Instance.ChangeScreen(screenPause, false, time);
+        GameManager.Instance.InputSystemUI = false;
     }
 
     public void ShowGameOver(float time = 1)
     {
+        GameManager.Instance.InputSystemUI = true;
         ScreenChangeTransition.Instance.ChangeScreen(screenGameOver, true, time);
     }
 
     public void HideGameOver(float time = 1)
     {
         ScreenChangeTransition.Instance.ChangeScreen(screenGameOver, false, time);
+        GameManager.Instance.InputSystemUI = false;
     }
 }

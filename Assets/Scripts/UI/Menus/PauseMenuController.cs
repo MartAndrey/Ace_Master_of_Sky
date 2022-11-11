@@ -2,21 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.InputSystem.UI;
+
 
 public class PauseMenuController : MonoBehaviour
 {
     public static PauseMenuController Instance;
 
     public bool IsTransition { get; set; }
-    public bool InputSystemUI { get { return inputSystemUI.enabled; } set { inputSystemUI.enabled = value; } }
     public float ScrollbarValueBackground { get { return scrollBarBackground.value; } }
     public float ScrollBarValueSFX { get { return scrollBarSFX.value; } }
 
     [SerializeField] Scrollbar scrollBarBackground;
     [SerializeField] Scrollbar scrollBarSFX;
-    
-    [SerializeField] InputSystemUIInputModule inputSystemUI;
 
     Animator animator;
 
@@ -98,8 +95,6 @@ public class PauseMenuController : MonoBehaviour
     {
         GameManager.Instance.StatePause();
     }
-
-    
 
     void SwitchScene(string nameScene)
     {

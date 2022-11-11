@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 
 public enum GameState { StateMenu, StateGame, StatePause, StateGameOver }
 
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     public float SpawnRate { get { return spawnRate; } }
     public float OffsetBackground { get { return offsetBackground; } }
+    public bool InputSystemUI { get { return inputSystemUI.enabled; } set { inputSystemUI.enabled = value; } }
     public Vector3 CameraCurrentPosition { get; set; }
     public int Score { get; set; }
     public int Level { get; set; }
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject background;
     [SerializeField] GameObject player;
     [Range(0.1f, 10f), SerializeField] float spawnRate;
+    [SerializeField] InputSystemUIInputModule inputSystemUI;
 
     Keyboard keyboard;
 
@@ -142,7 +145,8 @@ public class GameManager : MonoBehaviour
         }
         else if (newGameState == GameState.StateGameOver)
         {
-            ScreenManager.Instance.ShowGameOver();
+            ScreenManager.Instance.ShowGameOver(0);
+            GameOverMenuController.Instance.StartFade();
         }
 
         currentGameState = newGameState;
