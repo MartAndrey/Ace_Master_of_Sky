@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class GameOverMenuController : MonoBehaviour
 {
     public static GameOverMenuController Instance;
 
-    [SerializeField] GameObject confirmation;
+    [SerializeField] GameObject restartButton;
+    [SerializeField] GameObject exitButton;
+    [SerializeField] GameObject confirmationButton;
+    [SerializeField] GameObject itemsSetting;
     [SerializeField] GameObject score;
+    [SerializeField] Image[] settingImages;
+    [SerializeField] TMP_Text title;
     [SerializeField] Animator animatorExit;
 
     Animator animator;
@@ -46,8 +53,19 @@ public class GameOverMenuController : MonoBehaviour
         animatorExit.enabled = true;
         animatorExit.Play("FadeIn");
 
-        confirmation.SetActive(true);
+        confirmationButton.SetActive(true);
         score.SetActive(false);
+    }
+
+    public void Settings()
+    {
+        title.text = "Settings";
+        score.SetActive(false);
+        restartButton.SetActive(false);
+        exitButton.SetActive(false);
+        settingImages[0].enabled = false;
+        settingImages[1].enabled = true;
+        itemsSetting.SetActive(true);
     }
 
     public void ExitConfirmationNo()
@@ -59,7 +77,7 @@ public class GameOverMenuController : MonoBehaviour
     IEnumerator ExitConfirmationNoRutiner()
     {
         yield return new WaitForSecondsRealtime(1);
-        confirmation.SetActive(false);
+        confirmationButton.SetActive(false);
         score.SetActive(true);
     }
 
