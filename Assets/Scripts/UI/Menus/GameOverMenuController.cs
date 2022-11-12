@@ -15,6 +15,7 @@ public class GameOverMenuController : MonoBehaviour
     [SerializeField] GameObject score;
     [SerializeField] Image[] settingImages;
     [SerializeField] TMP_Text title;
+    [SerializeField] TMP_Text scoreNumber;
     [SerializeField] Animator animatorExit;
 
     Animator animator;
@@ -66,6 +67,11 @@ public class GameOverMenuController : MonoBehaviour
         settingImages[0].enabled = false;
         settingImages[1].enabled = true;
         itemsSetting.SetActive(true);
+    }
+
+    public void SetScore()
+    {
+        scoreNumber.text = UpdateUI.Instance.GetScore();
     }
 
     public void ExitConfirmationNo()

@@ -5,11 +5,21 @@ using TMPro;
 
 public class UpdateUI : MonoBehaviour
 {
+    public static UpdateUI Instance;
+
     [SerializeField] TMP_Text score;
     [SerializeField] TMP_Text level;
 
     int startScore = 0;
     int startLevel = 1;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
 
     void Start()
     {
@@ -21,4 +31,6 @@ public class UpdateUI : MonoBehaviour
     {
         score.text = GameManager.Instance.Score.ToString();
     }
+
+    public string GetScore() => score.text;
 }

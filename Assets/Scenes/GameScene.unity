@@ -5728,6 +5728,7 @@ MonoBehaviour:
   - {fileID: 1626180841}
   - {fileID: 1498413268}
   title: {fileID: 358318978}
+  scoreNumber: {fileID: 159560201}
   animatorExit: {fileID: 1876471078}
 --- !u!95 &1317275516
 Animator:
