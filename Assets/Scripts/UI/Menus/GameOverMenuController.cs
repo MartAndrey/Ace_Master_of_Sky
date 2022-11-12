@@ -6,6 +6,10 @@ public class GameOverMenuController : MonoBehaviour
 {
     public static GameOverMenuController Instance;
 
+    [SerializeField] GameObject confirmation;
+    [SerializeField] GameObject score;
+    [SerializeField] Animator animatorExit;
+
     Animator animator;
 
     void Awake()
@@ -35,6 +39,37 @@ public class GameOverMenuController : MonoBehaviour
     public void Restart()
     {
         SwitchScene("GameScene");
+    }
+
+    public void Exit()
+    {
+        animatorExit.enabled = true;
+        animatorExit.Play("FadeIn");
+
+        confirmation.SetActive(true);
+        score.SetActive(false);
+    }
+
+    public void ExitConfirmationNo()
+    {
+        animatorExit.SetTrigger("Transition");
+        StartCoroutine(ExitConfirmationNoRutiner());
+    }
+
+    IEnumerator ExitConfirmationNoRutiner()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        confirmation.SetActive(false);
+        score.SetActive(true);
+    }
+
+    public void ExitConfirmationYes()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 
     void SwitchScene(string nameScene)
