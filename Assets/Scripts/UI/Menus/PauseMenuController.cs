@@ -9,11 +9,6 @@ public class PauseMenuController : MonoBehaviour
     public static PauseMenuController Instance;
 
     public bool IsTransition { get; set; }
-    public float ScrollbarValueBackground { get { return scrollBarBackground.value; } }
-    public float ScrollBarValueSFX { get { return scrollBarSFX.value; } }
-
-    [SerializeField] Scrollbar scrollBarBackground;
-    [SerializeField] Scrollbar scrollBarSFX;
 
     Animator animator;
 
@@ -26,41 +21,6 @@ public class PauseMenuController : MonoBehaviour
 
         animator = GetComponent<Animator>();
         IsTransition = false;
-    }
-
-    void OnEnable()
-    {
-        LoadData();
-    }
-
-    void OnDisable()
-    {
-        SaveData();
-    }
-
-    void Update()
-    {
-        if (scrollBarBackground.value <= 0.0f)
-        {
-            scrollBarBackground.value = 0.0001f;
-        }
-        
-        if (scrollBarSFX.value <= 0.0f)
-        {
-            scrollBarSFX.value = 0.0001f;
-        }
-    }
-
-    void SaveData()
-    {
-        PlayerPrefs.SetFloat("ScrollbarValueBackground", scrollBarBackground.value);
-        PlayerPrefs.SetFloat("ScrollbarValueSFX", scrollBarSFX.value);
-    }
-
-    void LoadData()
-    {
-        scrollBarBackground.value = PlayerPrefs.GetFloat("ScrollbarValueBackground");
-        scrollBarSFX.value = PlayerPrefs.GetFloat("ScrollbarValueSFX");
     }
 
     public void FadeIn()

@@ -5,27 +5,28 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    bool isFirstTime;
-
     [SerializeField] AudioMixer audioMixerBackground;
     [SerializeField] AudioMixer audioMixerSFX;
+    [SerializeField] Scrollbars scrollbarsBackgroundMusic;
+    [SerializeField] Scrollbars scrollbarsSFX;
+
+    bool isFirstTime = true;
 
     private void Start()
     {
-        isFirstTime = false;
+        ControlAudioBackground(scrollbarsBackgroundMusic.ScrollBarValue);
+        ControlAudioSFX(scrollbarsSFX.ScrollBarValue);
 
-        ControlAudioBackground(PauseMenuController.Instance.ScrollbarValueBackground);
-        ControlAudioSFX(PauseMenuController.Instance.ScrollBarValueSFX);
+        StartCoroutine(SwitchValueIsFirstTime());
     }
 
     public void ControlAudioBackground(float scrollbarAudio)
     {
         audioMixerBackground.SetFloat("Background Music", Mathf.Log10(scrollbarAudio) * 20);
 
-        if (isFirstTime)
+        if (!isFirstTime && !scrollbarsBackgroundMusic.IsPayingSound())
         {
-            Scrollbars scrollbar = FindObjectOfType<Scrollbars>();
-            scrollbar.OverSound();
+            scrollbarsBackgroundMusic.OverSound();
         }
     }
 
@@ -33,12 +34,15 @@ public class AudioManager : MonoBehaviour
     {
         audioMixerSFX.SetFloat("Sound Effects", Mathf.Log10(scrollbarAudio) * 20);
 
-        if (isFirstTime)
+        if (!isFirstTime && !scrollbarsSFX.IsPayingSound())
         {
-            Scrollbars scrollbar = FindObjectOfType<Scrollbars>();
-            scrollbar.OverSound();
+            scrollbarsSFX.OverSound();
         }
+    }
 
-        isFirstTime = true;
+    IEnumerator SwitchValueIsFirstTime()
+    {
+        yield return new WaitForSeconds(1);
+        isFirstTime = false;
     }
 }
