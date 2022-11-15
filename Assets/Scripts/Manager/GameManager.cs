@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     public float SpawnRate { get { return spawnRate; } }
     public float OffsetBackground { get { return offsetBackground; } }
-    public bool InputSystemUI { get { return inputSystemUI.enabled; } set { inputSystemUI.enabled = value; } }
+    public InputSystemUIInputModule InputSystemUI { get { return inputSystemUI; } set { inputSystemUI = value; } }
     public Vector3 CameraCurrentPosition { get; set; }
     public int Score { get; set; }
     public int Level { get; set; }

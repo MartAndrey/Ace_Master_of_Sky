@@ -49,24 +49,22 @@ public class ScreenManager : MonoBehaviour
     public void ShowPause(float time = 1)
     {
         ScreenChangeTransition.Instance.ChangeScreen(screenPause, true, time);
-        GameManager.Instance.InputSystemUI = true;
+        GameManager.Instance.InputSystemUI.enabled = true;
     }
 
     public void HidePause(float time = 1)
     {
         ScreenChangeTransition.Instance.ChangeScreen(screenPause, false, time);
-        GameManager.Instance.InputSystemUI = false;
+        GameManager.Instance.InputSystemUI.enabled = false;
     }
 
     public void ShowGameOver(float time = 1)
     {
-        GameManager.Instance.InputSystemUI = true;
         ScreenChangeTransition.Instance.ChangeScreen(screenGameOver, true, time);
     }
 
     public void HideGameOver(float time = 1)
     {
         ScreenChangeTransition.Instance.ChangeScreen(screenGameOver, false, time);
-        GameManager.Instance.InputSystemUI = false;
     }
 }

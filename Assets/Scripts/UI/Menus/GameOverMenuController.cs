@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GameOverMenuController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class GameOverMenuController : MonoBehaviour
     [SerializeField] GameObject restartButton;
     [SerializeField] GameObject exitButton;
     [SerializeField] GameObject confirmationButton;
+    [SerializeField] GameObject confirmationButtonNo;
     [SerializeField] GameObject itemsSetting;
     [SerializeField] GameObject score;
     [SerializeField] Image[] settingImages;
@@ -42,6 +44,9 @@ public class GameOverMenuController : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1);
         animator.SetTrigger("Transition");
+        yield return new WaitForSecondsRealtime(1);
+        EventSystem.current.SetSelectedGameObject(restartButton);
+        GameManager.Instance.InputSystemUI.enabled = true;
     }
 
     public void Restart()
@@ -56,6 +61,7 @@ public class GameOverMenuController : MonoBehaviour
 
         confirmationButton.SetActive(true);
         score.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(confirmationButtonNo);
     }
 
     public void Settings()
@@ -78,6 +84,7 @@ public class GameOverMenuController : MonoBehaviour
     {
         animatorExit.SetTrigger("Transition");
         StartCoroutine(ExitConfirmationNoRutiner());
+        EventSystem.current.SetSelectedGameObject(exitButton);
     }
 
     IEnumerator ExitConfirmationNoRutiner()
