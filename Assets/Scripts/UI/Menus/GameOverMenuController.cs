@@ -13,17 +13,34 @@ public class GameOverMenuController : MonoBehaviour, ISwitchScene
 
     ConfigurationStates currentConfigurationStates = ConfigurationStates.StateNoClick;
 
+    [Header("UI references"), Space(2)]
+
+    [Header("Main Title")]
+    [SerializeField] TMP_Text title;
+
+    [Header("Main Menu")]
     [SerializeField] GameObject restartButton;
     [SerializeField] GameObject exitButton;
-    [SerializeField] GameObject confirmationButton;
-    [SerializeField] GameObject confirmationButtonNo;
-    [SerializeField] GameObject itemsSetting;
     [SerializeField] GameObject score;
-    [SerializeField] GameObject creditsUI;
-    [SerializeField] GameObject[] itemsSettingUI;
-    [SerializeField] Image[] settingImages;
-    [SerializeField] TMP_Text title;
     [SerializeField] TMP_Text scoreNumber;
+
+    [Header("Settings"), Tooltip("When the setup button is pressed")]
+    [SerializeField] GameObject itemsSetting;
+    [Tooltip("Array containing the configuration button images, 0 setting - 1 back")]
+    [SerializeField] Image[] settingImages;
+    [Tooltip("Array containing the references of the configurations")]
+    [SerializeField] GameObject[] itemsSettingUI;
+
+    [Header("Exit"), ]
+    [Tooltip("Reference when clicking the Exit button")]
+    [SerializeField] GameObject confirmationButton;
+    [Tooltip("Reference to the confirm exit button when clicking the Exit button")]
+    [SerializeField] GameObject confirmationButtonNo;
+
+    [Header("Credits")]
+    [SerializeField] GameObject creditsUI;
+
+    [Space, Tooltip("Exit button animation")]
     [SerializeField] Animator animatorExit;
 
     Animator animator;

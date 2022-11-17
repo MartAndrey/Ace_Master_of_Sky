@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float Acceleration { get { return acceleration; } set { acceleration = value; } }
     public float Damage { get { return damage; } }
 
+    [Header("Stats")]
     [SerializeField] float speed;
     [SerializeField] float maxSpeed;
     [SerializeField] float rotSpeed;

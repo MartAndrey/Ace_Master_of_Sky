@@ -37,13 +37,6 @@ public class PauseMenuController : MonoBehaviour, ISwitchScene
         animator.SetTrigger("Transition");
     }
 
-    public IEnumerator CheckTransition()
-    {
-        IsTransition = true;
-        yield return new WaitForSecondsRealtime(1);
-        IsTransition = false;
-    }
-
     public void MainMenu()
     {
         SwitchScene("MenuScene");
@@ -80,6 +73,13 @@ public class PauseMenuController : MonoBehaviour, ISwitchScene
         {
             GameManager.Instance.StateGame();
         }
+    }
+
+    public IEnumerator CheckTransition()
+    {
+        IsTransition = true;
+        yield return new WaitForSecondsRealtime(1);
+        IsTransition = false;
     }
 
     public void DisableScrollbars()

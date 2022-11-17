@@ -6032,7 +6032,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1114984080
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6573,23 +6573,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ff9abf5f69c1d7428978634de5c3932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: {fileID: 358318978}
   restartButton: {fileID: 231826215}
   exitButton: {fileID: 1876471073}
-  confirmationButton: {fileID: 1695347518}
-  confirmationButtonNo: {fileID: 867062785}
-  itemsSetting: {fileID: 1999206276}
   score: {fileID: 1408523071}
-  creditsUI: {fileID: 1133750107}
+  scoreNumber: {fileID: 159560201}
+  itemsSetting: {fileID: 1999206276}
+  settingImages:
+  - {fileID: 1626180841}
+  - {fileID: 1498413268}
   itemsSettingUI:
   - {fileID: 1089233939}
   - {fileID: 865696327}
   - {fileID: 991989827}
   - {fileID: 1755298420}
-  settingImages:
-  - {fileID: 1626180841}
-  - {fileID: 1498413268}
-  title: {fileID: 358318978}
-  scoreNumber: {fileID: 159560201}
+  confirmationButton: {fileID: 1695347518}
+  confirmationButtonNo: {fileID: 867062785}
+  creditsUI: {fileID: 1133750107}
   animatorExit: {fileID: 1876471078}
 --- !u!95 &1317275516
 Animator:
@@ -8083,7 +8083,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -9778,7 +9778,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
