@@ -1153,6 +1153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioPlay: {fileID: 8300000, guid: ad52b74ba5a390d4a90ec796d0ab547f, type: 3}
   audioOver: {fileID: 8300000, guid: 5ed086b7ef6be8a4ab20891f500b7d36, type: 3}
+  imageResume: {fileID: 0}
+  textResume: {fileID: 0}
 --- !u!114 &978796955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1472,7 +1474,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1747431800}
   - component: {fileID: 1747431799}
-  - component: {fileID: 1747431801}
   m_Layer: 0
   m_Name: Timeline Director
   m_TagString: Untagged
@@ -1518,26 +1519,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 360}
---- !u!95 &1747431801
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1747431798}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5b00446cca787f14d970d0343757602f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 2
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1928243481
 GameObject:
   m_ObjectHideFlags: 0

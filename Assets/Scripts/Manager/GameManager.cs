@@ -67,8 +67,11 @@ public class GameManager : MonoBehaviour
 
         if (keyboard.escapeKey.wasPressedThisFrame && !PauseMenuController.Instance.IsTransition)
         {
-            StartCoroutine(PauseMenuController.Instance.CheckTransition());
-            StatePause();
+            if (currentGameState == GameState.StateGame || currentGameState == GameState.StatePause)
+            {
+                StartCoroutine(PauseMenuController.Instance.CheckTransition());
+                StatePause();
+            }
         }
 
         CameraCurrentPosition = mainCamera.transform.position;

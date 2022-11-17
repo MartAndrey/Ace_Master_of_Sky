@@ -5,9 +5,13 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class GameOverMenuController : MonoBehaviour
+public class GameOverMenuController : MonoBehaviour, ISwitchScene
 {
+    enum ConfigurationStates { StateNoClick, StateSettings, StateCredits }
+
     public static GameOverMenuController Instance;
+
+    ConfigurationStates currentConfigurationStates = ConfigurationStates.StateNoClick;
 
     [SerializeField] GameObject restartButton;
     [SerializeField] GameObject exitButton;
@@ -15,6 +19,8 @@ public class GameOverMenuController : MonoBehaviour
     [SerializeField] GameObject confirmationButtonNo;
     [SerializeField] GameObject itemsSetting;
     [SerializeField] GameObject score;
+    [SerializeField] GameObject creditsUI;
+    [SerializeField] GameObject[] itemsSettingUI;
     [SerializeField] Image[] settingImages;
     [SerializeField] TMP_Text title;
     [SerializeField] TMP_Text scoreNumber;
@@ -66,18 +72,68 @@ public class GameOverMenuController : MonoBehaviour
 
     public void Settings()
     {
-        title.text = "Settings";
-        score.SetActive(false);
-        restartButton.SetActive(false);
-        exitButton.SetActive(false);
-        settingImages[0].enabled = false;
-        settingImages[1].enabled = true;
-        itemsSetting.SetActive(true);
+        if (currentConfigurationStates == ConfigurationStates.StateNoClick)
+        {
+            title.text = "Settings";
+            score.SetActive(false);
+            restartButton.SetActive(false);
+            exitButton.SetActive(false);
+            settingImages[0].enabled = false;
+            settingImages[1].enabled = true;
+            itemsSetting.SetActive(true);
+
+            currentConfigurationStates = ConfigurationStates.StateSettings;
+        }
+        else
+        {
+            BackSettings();
+        }
     }
 
     public void MainMenu()
     {
-        GameManager.Instance.StateMenu();
+        SwitchScene("MenuScene");
+    }
+
+    public void Credits()
+    {
+        title.text = "Credits";
+        creditsUI.SetActive(true);
+
+        foreach (GameObject ob in itemsSettingUI)
+        {
+            ob.SetActive(false);
+        }
+
+        currentConfigurationStates = ConfigurationStates.StateCredits;
+    }
+
+    void BackSettings()
+    {
+        if (currentConfigurationStates == ConfigurationStates.StateSettings)
+        {
+            title.text = "YOU LOSE";
+            score.SetActive(true);
+            restartButton.SetActive(true);
+            exitButton.SetActive(true);
+            settingImages[0].enabled = true;
+            settingImages[1].enabled = false;
+            itemsSetting.SetActive(false);
+
+            currentConfigurationStates = ConfigurationStates.StateNoClick;
+        }
+        else if (currentConfigurationStates == ConfigurationStates.StateCredits)
+        {
+            title.text = "Settings";
+            creditsUI.SetActive(false);
+
+            foreach (GameObject ob in itemsSettingUI)
+            {
+                ob.SetActive(true);
+            }
+
+            currentConfigurationStates = ConfigurationStates.StateSettings;
+        }
     }
 
     public void SetScore()
@@ -108,20 +164,18 @@ public class GameOverMenuController : MonoBehaviour
         #endif
     }
 
-    void SwitchScene(string nameScene)
+    public void SwitchScene(string nameScene)
     {
         Fade fade = FindObjectOfType<Fade>();
         fade.FadeIn();
 
-        ScreenManager.Instance.HideGameOver();
+        ScreenManager.Instance.HideGame();
         StartCoroutine(SwitchSceneRutiner(nameScene));
     }
 
-    IEnumerator SwitchSceneRutiner(string nameScene)
+    public IEnumerator SwitchSceneRutiner(string nameScene)
     {
         yield return new WaitForSecondsRealtime(2);
-
-        Time.timeScale = 1;
 
         if (nameScene == "MenuScene")
         {

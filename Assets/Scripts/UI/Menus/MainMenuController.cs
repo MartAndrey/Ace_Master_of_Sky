@@ -5,8 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
+    void Start()
+    {
+        Time.timeScale = 1;
+    }
     Fade fade;
-    
+
     public void Play()
     {
         fade = FindObjectOfType<Fade>();

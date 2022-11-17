@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class PauseMenuController : MonoBehaviour
+public class PauseMenuController : MonoBehaviour, ISwitchScene
 {
     public static PauseMenuController Instance;
 
@@ -59,13 +59,27 @@ public class PauseMenuController : MonoBehaviour
         GameManager.Instance.StatePause();
     }
 
-    void SwitchScene(string nameScene)
+    public void SwitchScene(string nameScene)
     {
         Fade fade = FindObjectOfType<Fade>();
         fade.FadeIn();
 
         ScreenManager.Instance.HidePause(0);
         StartCoroutine(SwitchSceneRutiner(nameScene));
+    }
+
+    public IEnumerator SwitchSceneRutiner(string nameScene)
+    {
+        yield return new WaitForSecondsRealtime(2);
+
+        if (nameScene == "MenuScene")
+        {
+            GameManager.Instance.StateMenu();
+        }
+        else if (nameScene == "GameScene")
+        {
+            GameManager.Instance.StateGame();
+        }
     }
 
     public void DisableScrollbars()
@@ -78,21 +92,5 @@ public class PauseMenuController : MonoBehaviour
     {
         scrollbarsBackgroundMusic.SetActive(true);
         scrollbarsSFX.SetActive(true);
-    }
-
-    IEnumerator SwitchSceneRutiner(string nameScene)
-    {
-        yield return new WaitForSecondsRealtime(2);
-
-        Time.timeScale = 1;
-
-        if (nameScene == "MenuScene")
-        {
-            GameManager.Instance.StateMenu();
-        }
-        else if (nameScene == "GameScene")
-        {
-            GameManager.Instance.StateGame();
-        }
     }
 }
