@@ -8,7 +8,7 @@
 - Pathfinding - IA
 - Animation Events
 - Tweening
-- Transiciones
+- Transitions
 - Callbacks
 - API connection
 - JSON

@@ -22,6 +22,8 @@ public class EnemyShipController : EnemyBaseController
 
     void Update()
     {
+        if (!player.gameObject.activeInHierarchy)
+            return;
         direction = player.transform.position - transform.position;
         angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 

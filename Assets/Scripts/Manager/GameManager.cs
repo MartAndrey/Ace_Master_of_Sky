@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public static Action OnResetPosition;
+    public static Action OnUpdateSound;
 
     [SerializeField] GameState currentGameState = GameState.StateGame;
     public GameState CurrentGameState { get { return currentGameState; } }
@@ -124,8 +125,7 @@ public class GameManager : MonoBehaviour
     {
         if (newGameState == GameState.StateMenu)
         {
-            // TODO: ScreenManager.Instance.ShowMenu();
-            SceneManager.LoadScene("MenuScene");
+            ScreenManager.Instance.ShowMainMenu();
         }
         else if (newGameState == GameState.StateGame)
         {
@@ -147,6 +147,9 @@ public class GameManager : MonoBehaviour
         {
             ScreenManager.Instance.ShowGameOver(0);
             GameOverMenuController.Instance.StartFade();
+            OnUpdateSound.Invoke();
+            PauseMenuController.Instance.DisableScrollbars();
+
         }
 
         currentGameState = newGameState;

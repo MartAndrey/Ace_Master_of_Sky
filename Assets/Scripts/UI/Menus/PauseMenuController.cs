@@ -10,6 +10,9 @@ public class PauseMenuController : MonoBehaviour
 
     public bool IsTransition { get; set; }
 
+    [SerializeField] GameObject scrollbarsBackgroundMusic;
+    [SerializeField] GameObject scrollbarsSFX;
+
     Animator animator;
 
     void Awake()
@@ -63,6 +66,18 @@ public class PauseMenuController : MonoBehaviour
 
         ScreenManager.Instance.HidePause(0);
         StartCoroutine(SwitchSceneRutiner(nameScene));
+    }
+
+    public void DisableScrollbars()
+    {
+        scrollbarsBackgroundMusic.SetActive(false);
+        scrollbarsSFX.SetActive(false);
+    }
+
+    public void EnableScrollbars()
+    {
+        scrollbarsBackgroundMusic.SetActive(true);
+        scrollbarsSFX.SetActive(true);
     }
 
     IEnumerator SwitchSceneRutiner(string nameScene)

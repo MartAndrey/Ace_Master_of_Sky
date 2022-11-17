@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScreenChangeTransition : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class ScreenChangeTransition : MonoBehaviour
         }
     }
 
-    public void ChangeScreen(Canvas screen, bool state, float time = 1)
+    public void ChangeScreen(Canvas screen, bool state, float time)
     {
         StartCoroutine(ChangeScreenRutiner(screen, state, time));
     }
@@ -23,5 +24,16 @@ public class ScreenChangeTransition : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(time);
         screen.enabled = state;
+    }
+
+    public void ChangeScreenScene(float time)
+    {
+        StartCoroutine(ChangeScreenRutiner(time));
+    }
+
+    IEnumerator ChangeScreenRutiner(float time)
+    {
+        yield return new WaitForSecondsRealtime(time);
+        SceneManager.LoadScene("MenuScene");
     }
 }

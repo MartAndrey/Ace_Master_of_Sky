@@ -18,11 +18,13 @@ public class Scrollbars : BaseUI
     void OnEnable()
     {
         LoadData();
+        GameManager.OnUpdateSound += SaveData;
     }
 
     void OnDisable()
     {
         SaveData();
+        GameManager.OnUpdateSound -= SaveData;
     }
 
     void Awake()

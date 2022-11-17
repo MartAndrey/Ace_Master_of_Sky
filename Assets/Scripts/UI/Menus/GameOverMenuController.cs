@@ -75,6 +75,11 @@ public class GameOverMenuController : MonoBehaviour
         itemsSetting.SetActive(true);
     }
 
+    public void MainMenu()
+    {
+        GameManager.Instance.StateMenu();
+    }
+
     public void SetScore()
     {
         scoreNumber.text = UpdateUI.Instance.GetScore();

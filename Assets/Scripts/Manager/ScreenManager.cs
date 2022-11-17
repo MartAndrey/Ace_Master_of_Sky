@@ -36,6 +36,11 @@ public class ScreenManager : MonoBehaviour
         }
     }
 
+    public void ShowMainMenu(float time = 1)
+    {
+        ScreenChangeTransition.Instance.ChangeScreenScene(time);
+    }
+
     public void ShowGame(float time = 1)
     {
         ScreenChangeTransition.Instance.ChangeScreen(screenGame, true, time);
