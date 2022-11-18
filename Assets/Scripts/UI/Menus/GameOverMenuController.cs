@@ -21,6 +21,7 @@ public class GameOverMenuController : MonoBehaviour, ISwitchScene
     [Header("Main Menu")]
     [SerializeField] GameObject restartButton;
     [SerializeField] GameObject exitButton;
+    [SerializeField] GameObject settingsButton;
     [SerializeField] GameObject score;
     [SerializeField] TMP_Text scoreNumber;
 
@@ -85,6 +86,10 @@ public class GameOverMenuController : MonoBehaviour, ISwitchScene
         confirmationButton.SetActive(true);
         score.SetActive(false);
         EventSystem.current.SetSelectedGameObject(confirmationButtonNo);
+
+        exitButton.GetComponent<Button>().interactable = false;
+        restartButton.GetComponent<Button>().interactable = false;
+        settingsButton.GetComponent<Button>().interactable = false;
     }
 
     public void Settings()
@@ -163,6 +168,10 @@ public class GameOverMenuController : MonoBehaviour, ISwitchScene
         animatorExit.SetTrigger("Transition");
         StartCoroutine(ExitConfirmationNoRutiner());
         EventSystem.current.SetSelectedGameObject(exitButton);
+
+        exitButton.GetComponent<Button>().interactable = true;
+        restartButton.GetComponent<Button>().interactable = true;
+        settingsButton.GetComponent<Button>().interactable = true;
     }
 
     IEnumerator ExitConfirmationNoRutiner()

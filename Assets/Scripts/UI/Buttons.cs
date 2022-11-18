@@ -17,4 +17,10 @@ public class Buttons : BaseUI
     {
         button.onClick.AddListener(PlaySound);
     }
+
+    public override void OverSound()
+    {
+        if (this.GetComponent<Button>().interactable == true)
+            audioSource.PlayOneShot(audioOver);
+    }
 }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public abstract class BaseUI : MonoBehaviour
 {
     [SerializeField] AudioClip audioPlay;
-    [SerializeField] AudioClip audioOver;
+    [SerializeField] protected AudioClip audioOver;
 
     [SerializeField] Image imageResume;
     [SerializeField] TMP_Text textResume;
@@ -19,7 +19,7 @@ public abstract class BaseUI : MonoBehaviour
         audioSource.PlayOneShot(audioPlay);
     }
 
-    public void OverSound()
+    public virtual void OverSound()
     {
         audioSource.PlayOneShot(audioOver);
     }
