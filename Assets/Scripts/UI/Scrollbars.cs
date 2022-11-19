@@ -59,11 +59,9 @@ public class Scrollbars : BaseUI
         {
             scrollbar.value = PlayerPrefs.GetFloat("ScrollbarValue");
         }
-        else
+        else if(typeScrollbar == TypesScrollbar.SoundEffects)
         {
             scrollbar.value = PlayerPrefs.GetFloat("ScrollbarValueSFX");
         }
     }
-
-    public bool IsPayingSound() => audioSource.isPlaying;
 }

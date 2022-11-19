@@ -150,7 +150,7 @@ public class GameManager : MonoBehaviour
         {
             ScreenManager.Instance.ShowGameOver(0);
             GameOverMenuController.Instance.StartFade();
-            OnUpdateSound.Invoke();
+            OnUpdateSound?.Invoke();
             PauseMenuController.Instance.DisableScrollbars();
 
         }

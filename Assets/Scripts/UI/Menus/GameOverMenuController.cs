@@ -121,6 +121,7 @@ public class GameOverMenuController : MonoBehaviour, ISwitchScene
     {
         title.text = "Credits";
         creditsUI.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(settingsButton);
 
         foreach (GameObject ob in itemsSettingUI)
         {
@@ -196,6 +197,7 @@ public class GameOverMenuController : MonoBehaviour, ISwitchScene
         fade.FadeIn();
 
         ScreenManager.Instance.HideGame();
+        ScreenManager.Instance.HideGameOver(0);
         StartCoroutine(SwitchSceneRutiner(nameScene));
     }
 
