@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float RotSpeed { get { return rotSpeed; } set { rotSpeed = value; } }
     public float Acceleration { get { return acceleration; } set { acceleration = value; } }
     public float Damage { get { return damage; } }
+    public float Speed { get { return speed; } }
 
     [Header("Stats")]
     [SerializeField] float speed;

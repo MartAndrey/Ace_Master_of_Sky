@@ -8,9 +8,13 @@ public class EnemyShipController : EnemyBaseController
     [SerializeField] float distanceToShoot;
     [SerializeField] float speedBullet;
     [SerializeField, Range(1f, 10)] float rateFire;
+    [SerializeField] GameObject[] shootPositionLeft;
+    [SerializeField] GameObject[] shootPositionRight;
+
     PlayerController player;
     bool shootLoaded;
     float angle;
+    float sqrDistanceToShoot;
 
     Vector2 direction;
 
@@ -18,39 +22,63 @@ public class EnemyShipController : EnemyBaseController
     {
         shootLoaded = true;
         player = FindObjectOfType<PlayerController>();
+
+        sqrDistanceToShoot = distanceToShoot * distanceToShoot;
     }
 
     void Update()
     {
-        if (!player.gameObject.activeInHierarchy)
-            return;
-        direction = player.transform.position - transform.position;
         angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        if (direction.magnitude < distanceToShoot && shootLoaded)
+        CheckAvailableToShoot();
+    }
+
+    void FixedUpdate()
+    {
+        if (!player.gameObject.activeInHierarchy)
+            return;
+
+        direction = player.transform.position - transform.position;
+    }
+
+    void CheckAvailableToShoot()
+    {
+
+        if (IsCloseToPlayer() && shootLoaded && angle >= 90)
         {
-            ShootBullet();
+            StartCoroutine(ShootBulletRutiner(shootPositionLeft));
+        }
+        else if (IsCloseToPlayer() && shootLoaded && angle <= 90)
+        {
+            StartCoroutine(ShootBulletRutiner(shootPositionRight));
         }
     }
 
-    void ShootBullet()
+    void ShootBullet(Vector2 position)
     {
         shootLoaded = false;
-        
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        GameObject bullet = Instantiate(bulletPrefab, position, Quaternion.identity);
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-        bulletRb.velocity = direction.normalized * speedBullet;
+        bulletRb.velocity = (direction + Vector2.right * player.Speed).normalized * speedBullet;
         bulletRb.rotation = angle;
-
-        StartCoroutine(ShootBulletRutiner());
     }
 
-    IEnumerator ShootBulletRutiner()
+    IEnumerator ShootBulletRutiner(GameObject[] spawnPositionToShoot)
     {
-        yield return new WaitForSeconds(1 / rateFire);
-        shootLoaded = true;
+        for (int i = 0; i < spawnPositionToShoot.Length; i++)
+        {
+            if (!IsCloseToPlayer())
+                break;
+
+            Vector2 currentPosition = spawnPositionToShoot[i].transform.position;
+            ShootBullet(currentPosition);
+            yield return new WaitForSeconds(1 / rateFire);
+            shootLoaded = true;
+        }
     }
+
+    bool IsCloseToPlayer() => direction.sqrMagnitude < sqrDistanceToShoot;
 
     protected override void DisableGameObject()
     {
