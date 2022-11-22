@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
+    public float SpeedX { get { return speedX; } }
+
     [SerializeField] float speedX;
     [SerializeField] float speedY;
-
-    public float SpeedX { get { return speedX; } }
 
     float positionY;
     float maxHight = 16;
     float minHight = 0;
     float time = 20;
+
+    void OnEnable()
+    {
+        GameManager.OnStatsUp += StatsUp;
+    }
+
+    void OnDisable()
+    {
+        GameManager.OnStatsUp -= StatsUp;
+    }
 
     void Start()
     {
@@ -41,5 +51,11 @@ public class CameraFollow : MonoBehaviour
         yield return new WaitForSeconds(time);
         StartCoroutine(ChangeHight());
         positionY = Random.Range(minHight, maxHight);
+    }
+
+    void StatsUp()
+    {
+        speedX += LevelUp.Instance.LevelUpStats(speedX);
+        speedY += LevelUp.Instance.LevelUpStats(speedY);
     }
 }

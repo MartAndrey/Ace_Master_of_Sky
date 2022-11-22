@@ -10,6 +10,16 @@ public class EnemyObjectPooler : MonoBehaviour
     [SerializeField] List<GameObject> enemyList;
     [SerializeField] int enemiesSize;
 
+    void OnEnable()
+    {
+        GameManager.OnStatsUp += StatsUp;
+    }
+
+    void OnDisable()
+    {
+        GameManager.OnStatsUp -= StatsUp;
+    }
+
     void Start()
     {
         if (Instance == null)
@@ -58,5 +68,17 @@ public class EnemyObjectPooler : MonoBehaviour
         enemyList[enemyList.Count - 1].SetActive(true);
 
         return enemyList[enemyList.Count - 1];
+    }
+
+    void StatsUp()
+    {
+        for (int i = 0; i < enemyList.Count; i++)
+        {
+            if (enemyList[i].activeInHierarchy && enemyList[i].activeSelf)
+            {
+                enemyList[i].GetComponent<Pathfinding.AIPath>().maxSpeed += LevelUp.Instance.LevelUpStats(enemyList[i].GetComponent<Pathfinding.AIPath>().maxSpeed);
+                enemyList[i].GetComponent<Pathfinding.AIPath>().rotationSpeed += LevelUp.Instance.LevelUpStats(enemyList[i].GetComponent<Pathfinding.AIPath>().rotationSpeed);
+            }
+        }
     }
 }

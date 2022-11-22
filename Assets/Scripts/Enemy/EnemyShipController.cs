@@ -18,6 +18,16 @@ public class EnemyShipController : EnemyBaseController
 
     Vector2 direction;
 
+    void OnEnable()
+    {
+        GameManager.OnStatsUp += StatsUp;
+    }
+
+    void OnDisable()
+    {
+        GameManager.OnStatsUp -= StatsUp;
+    }
+
     void Start()
     {
         shootLoaded = true;
@@ -94,5 +104,10 @@ public class EnemyShipController : EnemyBaseController
             DisableGameObject();
             other.collider.GetComponent<PlayerLife>().ChangeHealth(damage);
         }
+    }
+
+    void StatsUp()
+    {
+        rateFire += LevelUp.Instance.LevelUpStats(rateFire);
     }
 }

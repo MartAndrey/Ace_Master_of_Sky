@@ -14,6 +14,12 @@ public class ShipSpawn : MonoBehaviour
     void OnEnable()
     {
         GameManager.OnResetPosition += ResetPosition;
+        GameManager.OnStatsUp += StatsUp;
+    }
+
+    void OnDisable()
+    {
+        GameManager.OnStatsUp -= StatsUp;
     }
 
     void Start()
@@ -60,5 +66,10 @@ public class ShipSpawn : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+    }
+
+    void StatsUp()
+    {
+        speed += LevelUp.Instance.LevelUpStats(speed);
     }
 }

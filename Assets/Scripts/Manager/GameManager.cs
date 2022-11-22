@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public static Action OnResetPosition;
     public static Action OnUpdateSound;
+    public static Action OnStatsUp;
 
     [SerializeField] GameState currentGameState = GameState.StateGame;
     public GameState CurrentGameState { get { return currentGameState; } }
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject player;
     [Range(0.1f, 10f), SerializeField] float spawnRate;
     [SerializeField] InputSystemUIInputModule inputSystemUI;
+    [SerializeField] float requisiteScoreUp;
 
     Keyboard keyboard;
 
@@ -37,11 +39,13 @@ public class GameManager : MonoBehaviour
     void OnEnable()
     {
         OnResetPosition += SetStartPosition;
+        OnStatsUp += StatsUp;
     }
 
     void OnDisable()
     {
         OnResetPosition -= SetStartPosition;
+        OnStatsUp -= StatsUp;
     }
 
     void Awake()
@@ -59,6 +63,8 @@ public class GameManager : MonoBehaviour
         startPositionCamera = mainCamera.transform.position.x;
 
         StartCoroutine(GetEnemy());
+
+        Level = 1;
     }
 
     void Update()
@@ -80,6 +86,9 @@ public class GameManager : MonoBehaviour
         {
             OnResetPosition?.Invoke();
         }
+
+        if (Score >= requisiteScoreUp)
+            ToLevelUp();
     }
 
     void CheckGameStatus()
@@ -171,5 +180,18 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1);
         currentGameState = GameState.StateGame;
+    }
+
+    void ToLevelUp()
+    {
+        Level += 1;
+        requisiteScoreUp *= 2;
+
+        OnStatsUp?.Invoke();
+    }
+
+    void StatsUp()
+    {
+        spawnRate += LevelUp.Instance.LevelUpStats(spawnRate);
     }
 }

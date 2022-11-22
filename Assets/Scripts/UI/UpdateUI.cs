@@ -11,7 +11,6 @@ public class UpdateUI : MonoBehaviour
     [SerializeField] TMP_Text level;
 
     int startScore = 0;
-    int startLevel = 1;
 
     void Awake()
     {
@@ -24,12 +23,12 @@ public class UpdateUI : MonoBehaviour
     void Start()
     {
         score.text = startScore.ToString();
-        level.text = startLevel.ToString();
     }
 
     void Update()
     {
         score.text = GameManager.Instance.Score.ToString();
+        level.text = GameManager.Instance.Level.ToString();
     }
 
     public string GetScore() => score.text;

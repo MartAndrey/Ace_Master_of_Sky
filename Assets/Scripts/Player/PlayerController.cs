@@ -26,6 +26,16 @@ public class PlayerController : MonoBehaviour
     float movementX;
     float movementY;
 
+    void OnEnable()
+    {
+        GameManager.OnStatsUp += StatsUp;
+    }
+
+    void OnDisable()
+    {
+        GameManager.OnStatsUp -= StatsUp;
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -65,5 +75,10 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1 / rateFire);
         gunLoaded = true;
+    }
+
+    void StatsUp()
+    {
+        rateFire += LevelUp.Instance.LevelUpStats(rateFire);
     }
 }
