@@ -127,6 +127,7 @@ MonoBehaviour:
   damage: 1
   health: 1
   points: 50
+  aIPath: {fileID: 3773465684369547762}
 --- !u!50 &3773465684369547765
 Rigidbody2D:
   serializedVersion: 4

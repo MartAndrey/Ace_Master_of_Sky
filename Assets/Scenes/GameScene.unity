@@ -10906,7 +10906,7 @@ MonoBehaviour:
   player: {fileID: 1407925664}
   spawnRate: 0.1
   inputSystemUI: {fileID: 816656233}
-  requisiteScoreUp: 1
+  requisiteScoreUp: 300
 --- !u!4 &1871928812
 Transform:
   m_ObjectHideFlags: 0

@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     public int Score { get; set; }
     public int Level { get; set; }
 
+    public float RotationSpeedEnemy { get { return rotationSpeedEnemy; } }
+    public float SpeedEnemy { get { return speedEnemy; } }
+
     [SerializeField] GameObject mainCamera;
     [SerializeField] GameObject background;
     [SerializeField] GameObject player;
@@ -35,6 +38,7 @@ public class GameManager : MonoBehaviour
     Keyboard keyboard;
 
     float startPositionCamera, offsetPlayer, offsetBackground;
+    float speedEnemy = 2, rotationSpeedEnemy = 200;
 
     void OnEnable()
     {
@@ -193,5 +197,7 @@ public class GameManager : MonoBehaviour
     void StatsUp()
     {
         spawnRate += LevelUp.Instance.LevelUpStats(spawnRate);
+        speedEnemy += LevelUp.Instance.LevelUpStats(speedEnemy);
+        rotationSpeedEnemy += LevelUp.Instance.LevelUpStats(rotationSpeedEnemy);
     }
 }
