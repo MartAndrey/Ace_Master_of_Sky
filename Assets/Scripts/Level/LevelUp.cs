@@ -14,5 +14,5 @@ public class LevelUp : MonoBehaviour
         }
     }
 
-    public float LevelUpStats(float stat) => stat = (stat * 10) / 100;
+    public float LevelUpStats(float stat, float percentage = 10) => stat = (stat * percentage) / 100;
 }

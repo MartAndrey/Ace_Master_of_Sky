@@ -21,11 +21,13 @@ public class EnemyShipController : EnemyBaseController
     void OnEnable()
     {
         GameManager.OnStatsUp += StatsUp;
+        GameManager.OnResetPosition += ResetPosition;
     }
 
     void OnDisable()
     {
         GameManager.OnStatsUp -= StatsUp;
+        GameManager.OnResetPosition -= ResetPosition;
     }
 
     void Start()

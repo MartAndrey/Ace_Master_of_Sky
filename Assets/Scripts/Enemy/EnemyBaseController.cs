@@ -9,11 +9,13 @@ public abstract class EnemyBaseController : MonoBehaviour
     [SerializeField] protected GameObject explosionPrefab;
     [SerializeField] protected float damage;
     [SerializeField] protected float health;
+    [SerializeField] protected float startHealth;
     [SerializeField] protected int points;
 
     void OnEnable()
     {
         GameManager.OnResetPosition += ResetPosition;
+        health = startHealth;
     }
 
     void OnDisable()
@@ -21,7 +23,7 @@ public abstract class EnemyBaseController : MonoBehaviour
         GameManager.OnResetPosition -= ResetPosition;
     }
 
-    void ResetPosition()
+    protected void ResetPosition()
     {
         float offsetEnemy = transform.position.x - GameManager.Instance.CameraCurrentPosition.x;
         transform.position = new Vector2(offsetEnemy, transform.position.y);

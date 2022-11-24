@@ -126,6 +126,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 5750854819958220215, guid: 8bafcfa8822eec9409fa6f5448503604, type: 3}
   damage: 1
   health: 1
+  startHealth: 1
   points: 50
   aIPath: {fileID: 3773465684369547762}
 --- !u!50 &3773465684369547765

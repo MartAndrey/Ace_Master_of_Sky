@@ -25,4 +25,12 @@ public class PlayerLife : MonoBehaviour
 
         GameManager.Instance.StateGameOver();
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Limit"))
+        {
+            Death();
+        }
+    }
 }

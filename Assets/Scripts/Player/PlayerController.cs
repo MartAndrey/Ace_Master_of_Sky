@@ -79,6 +79,9 @@ public class PlayerController : MonoBehaviour
 
     void StatsUp()
     {
-        rateFire += LevelUp.Instance.LevelUpStats(rateFire);
+        rateFire += LevelUp.Instance.LevelUpStats(rateFire, 5);
+        rotSpeed += LevelUp.Instance.LevelUpStats(rotSpeed, 5);
+        maxSpeed += LevelUp.Instance.LevelUpStats(maxSpeed, 5);
+        acceleration += LevelUp.Instance.LevelUpStats(acceleration, 5);
     }
 }

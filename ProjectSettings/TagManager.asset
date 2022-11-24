@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Sea
   - Spawn Point
+  - Limit
   layers:
   - Default
   - TransparentFX
