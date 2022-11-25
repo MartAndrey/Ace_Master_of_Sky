@@ -7,13 +7,13 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] AudioMixer audioMixerBackground;
     [SerializeField] AudioMixer audioMixerSFX;
-    [SerializeField] Scrollbars scrollbarBackground;
-    [SerializeField] Scrollbars scrollbarSFX ;
 
     private void Start()
     {
-        ControlAudioBackground(scrollbarBackground.ScrollBarValue);
-        ControlAudioSFX(scrollbarSFX.ScrollBarValue);
+        DontDestroyOnLoad(gameObject);
+
+        ControlAudioBackground(PlayerPrefs.GetFloat("ScrollbarValue"));
+        ControlAudioSFX(PlayerPrefs.GetFloat("ScrollbarValueSFX"));
     }
 
     public void ControlAudioBackground(float scrollbarAudio)

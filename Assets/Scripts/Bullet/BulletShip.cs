@@ -15,6 +15,9 @@ public class BulletShip : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
+            if (ship == null)
+                return;
+                
             other.GetComponent<PlayerLife>().ChangeHealth(ship.Damage);
             Destroy(gameObject);
         }

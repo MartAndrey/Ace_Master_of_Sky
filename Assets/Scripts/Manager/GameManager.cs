@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
     {
         CheckGameStatus();
 
-        if (keyboard.escapeKey.wasPressedThisFrame && !PauseMenuController.Instance.IsTransition)
+        if ((keyboard.escapeKey.wasPressedThisFrame || keyboard.pKey.wasPressedThisFrame) && !PauseMenuController.Instance.IsTransition)
         {
             if (currentGameState == GameState.StateGame || currentGameState == GameState.StatePause)
             {
